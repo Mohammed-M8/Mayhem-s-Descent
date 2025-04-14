@@ -2522,7 +2522,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8786c70e472a60b499ab78d955567b8a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  projectile: {fileID: 0}
+  projectile: {fileID: 5023125731010291333, guid: 4aaa29f3beccaa749b3efdb340487d03,
+    type: 3}
   slashPrefab: {fileID: 0}
   projectileSpeed: 10
   spawn: {fileID: 4586723171251750724}

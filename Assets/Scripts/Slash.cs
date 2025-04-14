@@ -1,6 +1,8 @@
+using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 
-public class SwordSlash : MonoBehaviour
+public class Slash : MonoBehaviour
 {
     public float lifeTime = 0.5f;
     public float speed = 5f;

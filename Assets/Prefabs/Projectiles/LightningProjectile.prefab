@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 5442947348118835494}
   - component: {fileID: 8795746097870097398}
   - component: {fileID: 6973291282619656294}
-  m_Layer: 7
+  m_Layer: 8
   m_Name: SparkDeathEffect
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4634,7 +4634,7 @@ GameObject:
   - component: {fileID: -799475350637568355}
   - component: {fileID: 279325935534497872}
   - component: {fileID: 1202481055828790357}
-  m_Layer: 7
+  m_Layer: 8
   m_Name: LightningProjectile
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4713,7 +4713,7 @@ GameObject:
   - component: {fileID: 8848087373104729633}
   - component: {fileID: 8561729300186777051}
   - component: {fileID: 5781603555279188386}
-  m_Layer: 7
+  m_Layer: 8
   m_Name: Bullet
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4920,7 +4920,7 @@ GameObject:
   - component: {fileID: 2890622296803051220}
   - component: {fileID: 6821434956768829888}
   - component: {fileID: 7212445227450145096}
-  m_Layer: 7
+  m_Layer: 8
   m_Name: SideSparksEffect
   m_TagString: Untagged
   m_Icon: {fileID: 0}

@@ -654,6 +654,21 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 840578770048926193, guid: 2dfbb63c9cdf7504faf4ff26b0581598,
+        type: 3}
+      propertyPath: mainCamera
+      value: 
+      objectReference: {fileID: 14472184}
+    - target: {fileID: 1127696158092050209, guid: 2dfbb63c9cdf7504faf4ff26b0581598,
+        type: 3}
+      propertyPath: mainCamera
+      value: 
+      objectReference: {fileID: 14472184}
+    - target: {fileID: 2139534393109539445, guid: 2dfbb63c9cdf7504faf4ff26b0581598,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 90
+      objectReference: {fileID: 0}
     - target: {fileID: 3833173085298022775, guid: 2dfbb63c9cdf7504faf4ff26b0581598,
         type: 3}
       propertyPath: mainCamera
@@ -664,6 +679,11 @@ PrefabInstance:
       propertyPath: _rb
       value: 
       objectReference: {fileID: 2065758133}
+    - target: {fileID: 7894262849525705670, guid: 2dfbb63c9cdf7504faf4ff26b0581598,
+        type: 3}
+      propertyPath: mainCamera
+      value: 
+      objectReference: {fileID: 14472184}
     - target: {fileID: 8189980434977739222, guid: 2dfbb63c9cdf7504faf4ff26b0581598,
         type: 3}
       propertyPath: m_Name

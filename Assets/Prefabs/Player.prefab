@@ -2522,9 +2522,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8786c70e472a60b499ab78d955567b8a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  projectile: {fileID: 1725343758986064467, guid: 08241ee52316d6d498d5c8dd796912c0,
+  projectile: {fileID: 5888612618858573316, guid: 6cdec17cd7b2a924eb67ced6c0e51d00,
     type: 3}
-  slashPrefab: {fileID: 3245855528223861111, guid: 4d5635f8cb3829645ad6a0b642892962,
+  slashPrefab: {fileID: 3245855528223861111, guid: dd4cb64f63ca85645bfdcf94d0906fbf,
     type: 3}
   projectileSpeed: 10
   spawn: {fileID: 4586723171251750724}

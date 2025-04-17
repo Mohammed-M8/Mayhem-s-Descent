@@ -113,6 +113,7 @@ GameObject:
   - component: {fileID: 8469267511763396824}
   - component: {fileID: 4637356234267792062}
   - component: {fileID: 4192693077301854320}
+  - component: {fileID: 5035917885672554241}
   m_Layer: 8
   m_Name: LightProjectile
   m_TagString: Untagged
@@ -179,6 +180,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Damage: 50
+--- !u!114 &5035917885672554241
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1725343758986064467}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ddea6381d71ee184bacde85e3b890792, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Damage: 20
+  effect: 4
+  effectDuration: 3
 --- !u!1 &1853501251556011797
 GameObject:
   m_ObjectHideFlags: 0

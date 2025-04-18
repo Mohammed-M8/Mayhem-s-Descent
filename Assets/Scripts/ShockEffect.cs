@@ -8,6 +8,7 @@ public class ShockEffect : MonoBehaviour
     public int shockDamage = 20;
     public float chainduration = 1f;
     public int maxChains = 5;
+    public GameObject chain;
 
     private List<Transform> enemiesShocked = new List<Transform>();
 
@@ -29,6 +30,10 @@ public class ShockEffect : MonoBehaviour
         }
         while (remaining > 0)
         {
+            if (currentTarget == null)
+            {
+                yield break;
+            }
             Collider[] hitEnemies = Physics.OverlapSphere(currentTarget.position, chainArea);
             Transform nextTarget = null;
             foreach (var hit in hitEnemies)
@@ -51,6 +56,7 @@ public class ShockEffect : MonoBehaviour
                 {
                     enemyDamage.takeDamage(shockDamage);
                     enemiesShocked.Add(nextTarget);
+                    CreateLightningEffect(currentTarget.position, nextTarget.position);
                 }
                 currentTarget = nextTarget;
             }
@@ -63,5 +69,16 @@ public class ShockEffect : MonoBehaviour
             yield return new WaitForSeconds(chainduration);
         }
         
+    }
+    void CreateLightningEffect(Vector3 start, Vector3 end)
+    {
+        GameObject lightning = Instantiate(chain, start, Quaternion.identity);
+        LineRenderer lr = lightning.GetComponent<LineRenderer>();
+        if (lr != null)
+        {
+            lr.SetPosition(0, start);
+            lr.SetPosition(1, end);
+        }
+        Destroy(lightning, 0.2f); // Quickly remove it after showing
     }
 }

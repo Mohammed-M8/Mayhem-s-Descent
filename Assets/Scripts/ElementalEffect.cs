@@ -7,6 +7,7 @@ public class ElementalEffect : MonoBehaviour
 {
     private bool hasHit = false;
     public int Damage;
+    public GameObject effectPrefab;
     public enum StatusEffect
     {
         Burn,
@@ -49,6 +50,7 @@ public class ElementalEffect : MonoBehaviour
         {
             case StatusEffect.Burn:
                 BurnEffect burnEffect=Enemy.AddComponent<BurnEffect>();
+                burnEffect.Fire = effectPrefab;
                 burnEffect.Burn();
                 effectComponent = burnEffect;
                 break;
@@ -61,7 +63,10 @@ public class ElementalEffect : MonoBehaviour
 
             case StatusEffect.Shock:
                 ShockEffect shockEffect = Enemy.AddComponent<ShockEffect>();
+                if (effectPrefab != null)
+                    shockEffect.chain = effectPrefab;
                 shockEffect.ApplyShock(Enemy);
+
                 effectComponent = shockEffect;
                 break;
             

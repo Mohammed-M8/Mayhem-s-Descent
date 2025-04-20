@@ -15,7 +15,7 @@ public class Strike : MonoBehaviour
 
             EnemyDamage enemyDamage = collision.collider.GetComponent<EnemyDamage>();
             enemyDamage.takeDamage(Damage);
-            
+            Destroy(this.gameObject);
      
         }
     }

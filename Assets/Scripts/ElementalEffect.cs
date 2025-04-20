@@ -57,6 +57,7 @@ public class ElementalEffect : MonoBehaviour
 
             case StatusEffect.Knock:
                 KnockBackEffect knockBackEffect = Enemy.AddComponent<KnockBackEffect>();
+                knockBackEffect.dust = effectPrefab;
                 knockBackEffect.applyKnockBack(transform.position);
                 effectComponent = knockBackEffect;
                 break;
@@ -69,7 +70,10 @@ public class ElementalEffect : MonoBehaviour
 
                 effectComponent = shockEffect;
                 break;
-            
+            case StatusEffect.Slow:
+
+                break;
+
 
         }
         Destroy(effectComponent,effectDuration);

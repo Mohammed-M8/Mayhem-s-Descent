@@ -7,13 +7,13 @@ public class Strike : MonoBehaviour
     {
 
     }
-    private void OnCollisionEnter(Collision collision)
+    private void OnTriggerEnter(Collider other)
     {
         
-       if (collision.collider.CompareTag("Enemy"))
+       if (other.CompareTag("Enemy"))
         {
 
-            EnemyDamage enemyDamage = collision.collider.GetComponent<EnemyDamage>();
+            EnemyDamage enemyDamage = other.GetComponent<EnemyDamage>();
             enemyDamage.takeDamage(Damage);
             Destroy(this.gameObject);
      

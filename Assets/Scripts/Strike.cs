@@ -15,6 +15,7 @@ public class Strike : MonoBehaviour
 
             EnemyDamage enemyDamage = other.GetComponent<EnemyDamage>();
             enemyDamage.takeDamage(Damage);
+            this.gameObject.SetActive(false);
             Destroy(this.gameObject);
      
         }

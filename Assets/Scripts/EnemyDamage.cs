@@ -7,20 +7,28 @@ public class EnemyDamage : MonoBehaviour
     public int health=100;
     private int maxhealth;
     public Image bar;
-    private Renderer enemyRenderer;
-    private Color origiColor;
+    private Renderer[] renderers;
+    private Color[] originalColors;
    
     public void Awake()
     {
+        renderers = GetComponentsInChildren<Renderer>();
 
-        if (enemyRenderer == null)
+        if (renderers.Length == 0)
         {
-            enemyRenderer = GetComponent<Renderer>();
+            Renderer singleRenderer = GetComponent<Renderer>();
+            if (singleRenderer != null)
+            {
+                renderers = new Renderer[] { singleRenderer }; 
+            }
         }
-        if (enemyRenderer != null)
+
+        originalColors = new Color[renderers.Length];
+        for (int i = 0; i < renderers.Length; i++)
         {
-            origiColor = enemyRenderer.material.color;
+            originalColors[i] = renderers[i].material.color;
         }
+
         maxhealth = health;
         
     }
@@ -41,11 +49,19 @@ public class EnemyDamage : MonoBehaviour
 
     public IEnumerator damageFlash()
     {
-        if (enemyRenderer != null)
+        if (renderers != null)
         {
-            enemyRenderer.material.color = Color.white*3f;
+            foreach (Renderer r in renderers)
+            {
+                r.material.color = Color.white * 5f;
+            }
+
             yield return new WaitForSeconds(0.1f);
-            enemyRenderer.material.color = origiColor;
+
+            for (int i = 0; i < renderers.Length; i++)
+            {
+                renderers[i].material.color = originalColors[i];
+            }
         }
     }
 

@@ -29,8 +29,7 @@ public class ElementalEffect : MonoBehaviour
         if (other.CompareTag("Enemy"))
         {
             hasHit = true;
-            EnemyDamage enemyDamage = other.GetComponent<EnemyDamage>();
-            enemyDamage.takeDamage(Damage);
+            
             ApplyEffect(other.gameObject);
             Destroy(gameObject);
         }

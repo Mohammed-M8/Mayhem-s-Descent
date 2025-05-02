@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PlayerHealth : MonoBehaviour
 {
@@ -9,6 +10,15 @@ public class PlayerHealth : MonoBehaviour
     Animator animator;
     private Renderer[] renderers;
     private Color[] originalColors;
+
+    public Image bar;
+
+    [Header("Screen Flash")]
+    [SerializeField] private Image damageOverlay;    // drag your UI Image here
+    [SerializeField] private float overlayMaxAlpha = 0.4f;
+    [SerializeField] private float fadeSpeed = 1.5f;
+
+    private float overlayAlpha = 0f;
 
     public void Awake()
     {
@@ -30,10 +40,42 @@ public class PlayerHealth : MonoBehaviour
             originalColors[i] = renderers[i].material.color;
         }
 
+        if (damageOverlay != null)
+        {
+            var c = damageOverlay.color;
+            c.a = 0f;
+            damageOverlay.color = c;
+        }
+
+        maxhealth = health;
+
     }
+
+    public void Update()
+    {
+        if (damageOverlay != null && overlayAlpha > 0f)
+        {
+            overlayAlpha = Mathf.MoveTowards(overlayAlpha, 0f, fadeSpeed * Time.deltaTime);
+            var c = damageOverlay.color;
+            c.a = overlayAlpha;
+            damageOverlay.color = c;
+        }
+    }
+
     public void takeDamage(int damage)
     {
         health -= damage;
+
+        UpdateHealthBar();
+
+        if (damageOverlay != null)
+        {
+            overlayAlpha = overlayMaxAlpha;
+            var c = damageOverlay.color;
+            c.a = overlayAlpha;
+            damageOverlay.color = c;
+        }
+
         StartCoroutine(damageFlash());
         if (health <= 0)
         {
@@ -51,7 +93,7 @@ public class PlayerHealth : MonoBehaviour
     private IEnumerator Die()
     {
         animator.SetTrigger("Die");
-        yield return new WaitForSeconds(3f);
+        yield return new WaitForSeconds(0.6f);
         Destroy(this.gameObject);
     }
     public IEnumerator damageFlash()
@@ -60,7 +102,7 @@ public class PlayerHealth : MonoBehaviour
         {
             foreach (Renderer r in renderers)
             {
-                r.material.color = Color.white * 5f;
+                r.material.color = Color.red * 10f;
             }
 
             yield return new WaitForSeconds(0.1f);
@@ -69,6 +111,14 @@ public class PlayerHealth : MonoBehaviour
             {
                 renderers[i].material.color = originalColors[i];
             }
+        }
+    }
+
+    void UpdateHealthBar()
+    {
+        if (bar != null)
+        {
+            bar.fillAmount = (float)health / maxhealth;
         }
     }
 }

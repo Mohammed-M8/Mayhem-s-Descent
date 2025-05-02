@@ -1,4 +1,4 @@
-﻿// EnemySpawner.cs
+﻿// Assets/Scripts/EnemySpawner.cs
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
@@ -6,19 +6,18 @@ using UnityEngine.AI;
 public class EnemySpawner : MonoBehaviour
 {
     [Header("References")]
-    [SerializeField] Camera mainCam;                     // ← drag your Main Camera here
-    [SerializeField] Terrain terrain;                    // ← drag your Terrain here
-    [SerializeField] List<GameObject> enemyPrefabs = new();  // ← add all your enemy prefab assets
+    public Camera mainCam;                    // ← drag Main Camera here
+    public Terrain terrain;                   // ← drag your Terrain here
+    public List<GameObject> enemyPrefabs = new();  // ← drag all your enemy prefabs here
 
     [Header("Spawn Settings")]
-    [SerializeField] float spawnInterval = 3f;   // seconds between spawn attempts
-    [SerializeField] float spawnBuffer = 2f;   // how far outside the view to spawn
+    public float spawnInterval = 3f;  // seconds between spawn attempts
+    public float spawnBuffer = 2f;  // how far (world units) outside the view
 
     float timer;
 
     void Reset()
     {
-        // auto-assign if you forget
         mainCam = Camera.main;
         terrain = Terrain.activeTerrain;
     }
@@ -26,90 +25,75 @@ public class EnemySpawner : MonoBehaviour
     void Update()
     {
         timer += Time.deltaTime;
-        if (timer >= spawnInterval)
-        {
-            timer = 0f;
-            SpawnEnemy();
-        }
+        if (timer < spawnInterval) return;
+        timer = 0f;
+        SpawnEnemy();
     }
 
     void SpawnEnemy()
     {
         if (enemyPrefabs == null || enemyPrefabs.Count == 0) return;
-
-        Bounds camBounds = GetCameraWorldBounds();
         GameObject prefab = enemyPrefabs[Random.Range(0, enemyPrefabs.Count)];
-        Vector3 spawnPos = Vector3.zero;
 
-        // try up to 10 times to find a valid off-screen point
+        // compute viewport‐space margins based on world‐unit buffer
+        float camHeight = mainCam.orthographicSize * 2f;
+        float camWidth = camHeight * mainCam.aspect;
+        float marginY = spawnBuffer / camHeight;
+        float marginX = spawnBuffer / camWidth;
+
+        // a horizontal plane at terrain base
+        Plane ground = new Plane(Vector3.up,
+            new Vector3(0, terrain.transform.position.y, 0));
+
         for (int i = 0; i < 10; i++)
         {
-            Vector3 rawPos = GetPositionOutsideView(camBounds);
+            float vx = 0f, vy = 0f;
+            switch (Random.Range(0, 4))
+            {
+                case 0: // top
+                    vx = Random.Range(0f, 1f);
+                    vy = 1f + marginY;
+                    break;
+                case 1: // bottom
+                    vx = Random.Range(0f, 1f);
+                    vy = -marginY;
+                    break;
+                case 2: // left
+                    vx = -marginX;
+                    vy = Random.Range(0f, 1f);
+                    break;
+                default: // right
+                    vx = 1f + marginX;
+                    vy = Random.Range(0f, 1f);
+                    break;
+            }
 
-            // snap onto NavMesh
-            NavMeshHit hit;
-            if (!NavMesh.SamplePosition(rawPos, out hit, 2f, NavMesh.AllAreas))
+            // shoot a ray from that off‐screen viewport point
+            Ray ray = mainCam.ViewportPointToRay(new Vector3(vx, vy, 0f));
+            if (!ground.Raycast(ray, out float dist))
                 continue;
 
-            // convert to viewport coords
-            Vector3 vp = mainCam.WorldToViewportPoint(hit.position);
+            Vector3 worldPoint = ray.GetPoint(dist);
 
-            bool inFront = vp.z > 0;
-            bool onScreenX = vp.x >= 0 && vp.x <= 1;
-            bool onScreenY = vp.y >= 0 && vp.y <= 1;
+            // ensure it actually hits within your terrain bounds
+            float minX = terrain.transform.position.x;
+            float maxX = minX + terrain.terrainData.size.x;
+            float minZ = terrain.transform.position.z;
+            float maxZ = minZ + terrain.terrainData.size.z;
 
-            // ensure it's off-screen
-            if (!(inFront && onScreenX && onScreenY))
+            if (worldPoint.x < minX || worldPoint.x > maxX ||
+                worldPoint.z < minZ || worldPoint.z > maxZ)
+                continue;
+
+            // snap to NavMesh (must be walkable)
+            if (NavMesh.SamplePosition(worldPoint, out var hit, spawnBuffer, NavMesh.AllAreas))
             {
-                spawnPos = hit.position;
-                break;
+                Vector3 spawnPos = hit.position;
+                spawnPos.y = terrain.SampleHeight(spawnPos);
+                Instantiate(prefab, spawnPos, Quaternion.identity);
+                return;
             }
         }
-
-        if (spawnPos != Vector3.zero)
-        {
-            Instantiate(prefab, spawnPos, Quaternion.identity);
-        }
-        // else: all attempts landed on-screen or off-mesh; skip this tick
-    }
-
-    Bounds GetCameraWorldBounds()
-    {
-        float height = 2f * mainCam.orthographicSize;
-        float width = height * mainCam.aspect;
-        return new Bounds(mainCam.transform.position, new Vector3(width, 0, height));
-    }
-
-    Vector3 GetPositionOutsideView(Bounds b)
-    {
-        // terrain edges
-        float minX = terrain.transform.position.x;
-        float maxX = minX + terrain.terrainData.size.x;
-        float minZ = terrain.transform.position.z;
-        float maxZ = minZ + terrain.terrainData.size.z;
-
-        Vector3 p;
-        switch (Random.Range(0, 4))
-        {
-            case 0: // Top
-                p = new Vector3(Random.Range(b.min.x, b.max.x), 0, b.max.z + spawnBuffer);
-                break;
-            case 1: // Bottom
-                p = new Vector3(Random.Range(b.min.x, b.max.x), 0, b.min.z - spawnBuffer);
-                break;
-            case 2: // Left
-                p = new Vector3(b.min.x - spawnBuffer, 0, Random.Range(b.min.z, b.max.z));
-                break;
-            default: // Right
-                p = new Vector3(b.max.x + spawnBuffer, 0, Random.Range(b.min.z, b.max.z));
-                break;
-        }
-
-        // clamp to terrain bounds
-        p.x = Mathf.Clamp(p.x, minX, maxX);
-        p.z = Mathf.Clamp(p.z, minZ, maxZ);
-        p.y = terrain.SampleHeight(p);
-
-        return p;
+        // if all 10 tries fail, just skip this spawn tick
     }
 }

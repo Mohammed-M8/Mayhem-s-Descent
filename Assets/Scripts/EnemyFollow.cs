@@ -1,75 +1,94 @@
+﻿// Assets/Scripts/EnemyFollow.cs
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 
 public class EnemyFollow : MonoBehaviour
 {
-    public int damage = 100;
-    GameObject player;
+    [Header("Attack Settings")]
+    public float damagePerSecond = 50f;  // HP lost per second while touching
     public float followRange = 15f;
     public float attackRange = 2f;
-    public float attackCooldown = 1.5f;
 
-    private NavMeshAgent agent;
-    private bool isAttacking = false;
-    private Animator animator;
+    GameObject player;
+    NavMeshAgent agent;
+    Renderer playerRenderer;
+    Color playerOriginalColor;
 
-    private void Awake()
+    bool isAttacking = false;
+    Coroutine attackRoutine;
+
+    void Awake()
     {
-        player=GameObject.FindGameObjectWithTag("Player");
+        player = GameObject.FindGameObjectWithTag("Player");
         agent = GetComponent<NavMeshAgent>();
-        animator = GetComponent<Animator>();
-    }
 
-    private void Update()
-    {
-        Transform play = null;
-       
         if (player != null)
         {
-            play = player.transform;
-
+            playerRenderer = player.GetComponentInChildren<Renderer>();
+            if (playerRenderer != null)
+                playerOriginalColor = playerRenderer.material.color;
         }
-        if (play != null)
+    }
+
+    void Update()
+    {
+        if (player == null) return;
+        float dist = Vector3.Distance(transform.position, player.transform.position);
+
+        // In range → stop and start continuous damage
+        if (dist <= attackRange)
         {
-            float distance = Vector3.Distance(transform.position, play.position);
-
-
-            if (distance <= attackRange)
+            agent.isStopped = true;
+            if (!isAttacking)
+                attackRoutine = StartCoroutine(AttackLoop());
+        }
+        else
+        {
+            // Left contact → stop coroutine & restore color
+            if (isAttacking)
             {
-                agent.isStopped = true;
-
-                if (!isAttacking)
-                {
-                    StartCoroutine(Attack());
-                }
+                StopCoroutine(attackRoutine);
+                isAttacking = false;
+                if (playerRenderer != null)
+                    playerRenderer.material.color = playerOriginalColor;
             }
-            else if (distance <= followRange)
+
+            // Otherwise chase or idle
+            if (dist <= followRange)
             {
                 agent.isStopped = false;
-                agent.SetDestination(play.position);
-                float s = agent.velocity.magnitude;
-                animator.SetFloat("Speed", s);
+                agent.SetDestination(player.transform.position);
             }
             else
             {
-                agent.isStopped = true; // Player too far, stop chasing
+                agent.isStopped = true;
             }
         }
     }
 
-    private IEnumerator Attack()
+    IEnumerator AttackLoop()
     {
         isAttacking = true;
 
-        animator.SetTrigger("Attack");
-        yield return new WaitForSeconds(1f);
-        player.GetComponent<PlayerHealth>().takeDamage(damage);
+        // persistently red
+        if (playerRenderer != null)
+            playerRenderer.material.color = Color.red;
 
-        yield return new WaitForSeconds(attackCooldown);
+        while (Vector3.Distance(transform.position, player.transform.position) <= attackRange)
+        {
+            // calculate frame‐scaled damage
+            int dmg = Mathf.Max(1, Mathf.RoundToInt(damagePerSecond * Time.deltaTime));
+            player.GetComponent<PlayerHealth>().takeDamage(dmg);
+
+            // next frame
+            yield return null;
+        }
+
+        // restore original color
+        if (playerRenderer != null)
+            playerRenderer.material.color = playerOriginalColor;
 
         isAttacking = false;
     }
 }
-

@@ -85,10 +85,11 @@ public class PlayerHealth : MonoBehaviour
 
     public void addHealth(int h)
     {
-        if (health + h <= maxhealth)
-        {
-            health += h;
-        }
+        // increase health but cap at max
+        health = Mathf.Min(maxhealth, health + h);
+
+        // immediately refresh the UI bar
+        UpdateHealthBar();
     }
     private IEnumerator Die()
     {

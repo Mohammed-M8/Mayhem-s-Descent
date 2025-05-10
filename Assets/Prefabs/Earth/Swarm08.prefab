@@ -147,7 +147,7 @@ GameObject:
   - component: {fileID: 5340128343741503827}
   m_Layer: 0
   m_Name: Swarm08
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -178,7 +178,7 @@ Animator:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2391359435489877134}
   m_Enabled: 1
-  m_Avatar: {fileID: 0}
+  m_Avatar: {fileID: 9000000, guid: c9b76ad37caa4a3aaeecb9a10f8ae126, type: 3}
   m_Controller: {fileID: 9100000, guid: aa154e9fd2c241ef97254e0195862deb, type: 2}
   m_CullingMode: 1
   m_UpdateMode: 0

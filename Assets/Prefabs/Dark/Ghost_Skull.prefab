@@ -815,9 +815,10 @@ GameObject:
   - component: {fileID: 7297589851467659898}
   - component: {fileID: -7553509949501560621}
   - component: {fileID: 7539658382799395642}
+  - component: {fileID: -502036182691198496}
   m_Layer: 0
   m_Name: Ghost_Skull
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -831,7 +832,7 @@ Transform:
   m_GameObject: {fileID: 3547472185508525974}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 8527570120924523866}
@@ -863,10 +864,10 @@ CapsuleCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 1
   m_Enabled: 1
-  m_Radius: 0.6
-  m_Height: 1
+  m_Radius: 1.0651654
+  m_Height: 3.59134
   m_Direction: 1
-  m_Center: {x: 0, y: 0.4, z: 0}
+  m_Center: {x: 0, y: 1.59567, z: 0}
 --- !u!136 &3685179824123182835
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -877,10 +878,10 @@ CapsuleCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  m_Radius: 0.6
-  m_Height: 1
+  m_Radius: 1.0651654
+  m_Height: 3.59134
   m_Direction: 1
-  m_Center: {x: 0, y: 0.4, z: 0}
+  m_Center: {x: 0, y: 1.59567, z: 0}
 --- !u!54 &7297589851467659898
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -921,7 +922,7 @@ NavMeshAgent:
   m_GameObject: {fileID: 3547472185508525974}
   m_Enabled: 1
   m_AgentTypeID: 0
-  m_Radius: 0.5
+  m_Radius: 1
   m_Speed: 2
   m_Acceleration: 8
   avoidancePriority: 50
@@ -930,10 +931,31 @@ NavMeshAgent:
   m_AutoTraverseOffMeshLink: 1
   m_AutoBraking: 1
   m_AutoRepath: 1
-  m_Height: 2
+  m_Height: 2.8
   m_BaseOffset: 0
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
+--- !u!95 &-502036182691198496
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3547472185508525974}
+  m_Enabled: 1
+  m_Avatar: {fileID: 9000000, guid: ece37cae095b24941b30918463fe93d8, type: 3}
+  m_Controller: {fileID: 9100000, guid: a1dd9fad50e18db4aab2c3e46df90be9, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &3801976794048103759
 GameObject:
   m_ObjectHideFlags: 0

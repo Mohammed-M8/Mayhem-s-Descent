@@ -2502,9 +2502,10 @@ GameObject:
   - component: {fileID: 5325261709808208132}
   - component: {fileID: -8919168877606735920}
   - component: {fileID: 3951277293708477657}
+  - component: {fileID: 3921159899222498791}
   m_Layer: 0
   m_Name: Skeleton_Rogue
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2557,10 +2558,10 @@ CapsuleCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 1
   m_Enabled: 1
-  m_Radius: 0.6
-  m_Height: 1
+  m_Radius: 0.7072562
+  m_Height: 2.5451555
   m_Direction: 1
-  m_Center: {x: 0, y: 0.4, z: 0}
+  m_Center: {x: 0, y: 1.0725777, z: 0}
 --- !u!136 &-7398034407235453856
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -2571,10 +2572,10 @@ CapsuleCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  m_Radius: 0.6
-  m_Height: 1
+  m_Radius: 0.7072562
+  m_Height: 2.5451555
   m_Direction: 1
-  m_Center: {x: 0, y: 0.4, z: 0}
+  m_Center: {x: 0, y: 1.0725777, z: 0}
 --- !u!54 &5325261709808208132
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -2615,7 +2616,7 @@ NavMeshAgent:
   m_GameObject: {fileID: 9029970029224362241}
   m_Enabled: 1
   m_AgentTypeID: 0
-  m_Radius: 0.5
+  m_Radius: 0.7
   m_Speed: 2
   m_Acceleration: 8
   avoidancePriority: 50
@@ -2628,6 +2629,27 @@ NavMeshAgent:
   m_BaseOffset: 0
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
+--- !u!95 &3921159899222498791
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9029970029224362241}
+  m_Enabled: 1
+  m_Avatar: {fileID: 9000000, guid: a6bdcb40fe08d3645bee04365fa37900, type: 3}
+  m_Controller: {fileID: 9100000, guid: 4ae8444286014c04d86a9324263fee76, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &9092927069619740376
 GameObject:
   m_ObjectHideFlags: 0

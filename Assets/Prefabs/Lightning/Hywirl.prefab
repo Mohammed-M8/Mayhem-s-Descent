@@ -620,9 +620,10 @@ GameObject:
   - component: {fileID: 9106740521623473478}
   - component: {fileID: -7008083565757787215}
   - component: {fileID: -6534194753549297983}
+  - component: {fileID: 7897738220641308609}
   m_Layer: 0
   m_Name: Hywirl
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -668,10 +669,10 @@ CapsuleCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 1
   m_Enabled: 1
-  m_Radius: 0.6
-  m_Height: 1
+  m_Radius: 0.90099245
+  m_Height: 3.3796737
   m_Direction: 1
-  m_Center: {x: 0, y: 0.4, z: 0}
+  m_Center: {x: 0, y: 1.4898368, z: 0}
 --- !u!136 &8757778135919892567
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -682,10 +683,10 @@ CapsuleCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  m_Radius: 0.6
-  m_Height: 1
+  m_Radius: 0.90099245
+  m_Height: 3.3796737
   m_Direction: 1
-  m_Center: {x: 0, y: 0.4, z: 0}
+  m_Center: {x: 0, y: 1.4898368, z: 0}
 --- !u!54 &9106740521623473478
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -726,7 +727,7 @@ NavMeshAgent:
   m_GameObject: {fileID: 3239802634200070629}
   m_Enabled: 1
   m_AgentTypeID: 0
-  m_Radius: 0.5
+  m_Radius: 1
   m_Speed: 2
   m_Acceleration: 8
   avoidancePriority: 50
@@ -735,10 +736,31 @@ NavMeshAgent:
   m_AutoTraverseOffMeshLink: 1
   m_AutoBraking: 1
   m_AutoRepath: 1
-  m_Height: 2
+  m_Height: 2.5
   m_BaseOffset: 0
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
+--- !u!95 &7897738220641308609
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3239802634200070629}
+  m_Enabled: 1
+  m_Avatar: {fileID: 9000000, guid: 332e4a0b8e2212643bc8b8959fbc8528, type: 3}
+  m_Controller: {fileID: 9100000, guid: 165783d05dfce934aafe87a2449e1545, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &3242379434182160708
 GameObject:
   m_ObjectHideFlags: 0

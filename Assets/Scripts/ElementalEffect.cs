@@ -2,6 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting.Antlr3.Runtime.Tree;
 using UnityEngine;
+using UnityEngine.UI; 
+
 
 public class ElementalEffect : MonoBehaviour
 {
@@ -42,7 +44,7 @@ public class ElementalEffect : MonoBehaviour
         {
             currentEffect = (StatusEffect)Random.Range(0, 3);
         }
-
+       
         Component effectComponent = null;
 
         switch (currentEffect)

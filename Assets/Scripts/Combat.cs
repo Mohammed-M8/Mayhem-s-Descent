@@ -17,6 +17,8 @@ public class Combat : MonoBehaviour
     bool canSlash = true;
     public GameObject image1;
     public GameObject image2;
+    public AbilityCooldownUI shootCooldownUI;
+
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -74,7 +76,20 @@ public class Combat : MonoBehaviour
             {
                 rb.velocity = direction * projectileSpeed;
             }
-            GameObject.Destroy(Projectile, 3f);
+
+        ElementalEffect effectScript = Projectile.GetComponent<ElementalEffect>();
+        if (effectScript != null)
+        {
+            ElementalEffect.StatusEffect currentAbility = effectScript.effect;
+
+            AbilityIconManager iconManager = FindObjectOfType<AbilityIconManager>();
+            if (iconManager != null)
+            {
+                iconManager.SetAbilityIcon(currentAbility);
+            }
+        }
+
+        GameObject.Destroy(Projectile, 3f);
         
 
     }
@@ -83,6 +98,9 @@ public class Combat : MonoBehaviour
     {
         canShoot = false;
         if (image2 != null) image2.SetActive(false);
+
+        if (shootCooldownUI != null)
+            shootCooldownUI.TriggerCooldown(shootCoolDown); //show cooldown
 
         Shoot();
 

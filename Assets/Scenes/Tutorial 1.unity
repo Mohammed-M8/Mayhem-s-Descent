@@ -933,7 +933,7 @@ MonoBehaviour:
   waves:
   - waveName: wave 1
     enemies:
-    - {fileID: 1931298151966786, guid: 928a1377c1cd4515b208fef3a396b8ea, type: 3}
+    - {fileID: 9195694381162085581, guid: 5edaa191f81ec7a48af74f47768b033f, type: 3}
     duration: 60
     spawnInterval: 0.7
   - waveName: wave 2

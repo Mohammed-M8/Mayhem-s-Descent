@@ -1,17 +1,17 @@
-﻿// Assets/Scripts/EnemyFollow.cs
-using System.Collections;
+﻿using System.Collections;
 using UnityEngine;
 using UnityEngine.AI;
 
 public class EnemyFollow : MonoBehaviour
 {
     [Header("Attack Settings")]
-    public float damagePerSecond = 50f;  // HP lost per second while touching
+    public float damagePerSecond = 50f;
     public float followRange = 15f;
     public float attackRange = 2f;
 
     GameObject player;
     NavMeshAgent agent;
+    Animator animator;
     Renderer playerRenderer;
     Color playerOriginalColor;
 
@@ -22,6 +22,7 @@ public class EnemyFollow : MonoBehaviour
     {
         player = GameObject.FindGameObjectWithTag("Player");
         agent = GetComponent<NavMeshAgent>();
+        animator = GetComponent<Animator>();
 
         if (player != null)
         {
@@ -36,7 +37,6 @@ public class EnemyFollow : MonoBehaviour
         if (player == null) return;
         float dist = Vector3.Distance(transform.position, player.transform.position);
 
-        // In range → stop and start continuous damage
         if (dist <= attackRange)
         {
             agent.isStopped = true;
@@ -45,7 +45,6 @@ public class EnemyFollow : MonoBehaviour
         }
         else
         {
-            // Left contact → stop coroutine & restore color
             if (isAttacking)
             {
                 StopCoroutine(attackRoutine);
@@ -54,7 +53,6 @@ public class EnemyFollow : MonoBehaviour
                     playerRenderer.material.color = playerOriginalColor;
             }
 
-            // Otherwise chase or idle
             if (dist <= followRange)
             {
                 agent.isStopped = false;
@@ -65,27 +63,29 @@ public class EnemyFollow : MonoBehaviour
                 agent.isStopped = true;
             }
         }
+
+        // 🔄 Set Speed parameter from NavMeshAgent velocity
+        if (animator != null)
+        {
+            animator.SetFloat("Speed", agent.velocity.magnitude);
+        }
     }
 
     IEnumerator AttackLoop()
     {
         isAttacking = true;
 
-        // persistently red
         if (playerRenderer != null)
             playerRenderer.material.color = Color.red;
 
         while (Vector3.Distance(transform.position, player.transform.position) <= attackRange)
         {
-            // calculate frame‐scaled damage
             int dmg = Mathf.Max(1, Mathf.RoundToInt(damagePerSecond * Time.deltaTime));
             player.GetComponent<PlayerHealth>().takeDamage(dmg);
 
-            // next frame
             yield return null;
         }
 
-        // restore original color
         if (playerRenderer != null)
             playerRenderer.material.color = playerOriginalColor;
 

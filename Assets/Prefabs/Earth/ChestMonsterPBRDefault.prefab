@@ -114,7 +114,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hitsToBreak: 2
-  healthPackSpawnChance: 0.5
+  healthPackSpawnChance: 1
   healthPackPrefab: {fileID: 5995177511419696250, guid: c4152565fb62e6942b27bd4602ee5590,
     type: 3}
   animator: {fileID: 1706131321649255750}

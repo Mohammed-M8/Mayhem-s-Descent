@@ -1239,20 +1239,31 @@ MonoBehaviour:
   - waveName: wave 1
     enemies:
     - {fileID: 1931298151966786, guid: 928a1377c1cd4515b208fef3a396b8ea, type: 3}
-    duration: 60
-    spawnInterval: 0.7
+    duration: 20
+    spawnInterval: 0.4
   - waveName: wave 2
     enemies:
     - {fileID: 1524411113276028, guid: e2aafa8770d34a9591b41bedf4e318ba, type: 3}
-    duration: 120
+    - {fileID: 2391359435489877134, guid: 75f057b43e0a449dae5f6549f5107474, type: 3}
+    duration: 10
     spawnInterval: 2
   - waveName: third wave
     enemies:
+    - {fileID: 8422892626600285392, guid: 214e08cd5e5d74c458e2a81b7ec2c84c, type: 3}
+    - {fileID: 3155058319838657794, guid: 176299a76ecfc7544b22a66fae200ac7, type: 3}
+    duration: 20
+    spawnInterval: 1
+  - waveName: BOSS
+    enemies:
+    - {fileID: 1067925524328404, guid: 6bbfea6690ef7724ba495c866081f855, type: 3}
+    duration: 1
+    spawnInterval: 1
+  - waveName: slimes
+    enemies:
     - {fileID: 1931298151966786, guid: 928a1377c1cd4515b208fef3a396b8ea, type: 3}
-    - {fileID: 1524411113276028, guid: e2aafa8770d34a9591b41bedf4e318ba, type: 3}
-    duration: 180
-    spawnInterval: 2
-  totalTime: 360
+    duration: 60
+    spawnInterval: 1
+  totalTime: 111
 --- !u!4 &1348218429
 Transform:
   m_ObjectHideFlags: 0

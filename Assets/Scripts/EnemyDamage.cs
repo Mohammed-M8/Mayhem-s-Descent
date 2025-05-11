@@ -44,6 +44,7 @@ public class EnemyDamage : MonoBehaviour
         {
             
             Destroy(gameObject);
+            GetComponent<EnemyDropper>().HandleDrop();
         }
     }
 

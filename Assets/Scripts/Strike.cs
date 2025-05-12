@@ -17,10 +17,14 @@ public class Strike : MonoBehaviour
 
             EnemyDamage enemyDamage = other.GetComponent<EnemyDamage>();
             enemyDamage.takeDamage(Damage);
+
             SoundManager.Instance.PlaySound(hit,0.2f);
             this.gameObject.SetActive(false);
+
             Destroy(this.gameObject);
+     
         }
+
 
         if (other.CompareTag("Chest"))
         {

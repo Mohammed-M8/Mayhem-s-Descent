@@ -2,8 +2,6 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting.Antlr3.Runtime.Tree;
 using UnityEngine;
-using UnityEngine.UI; 
-
 
 public class ElementalEffect : MonoBehaviour
 {
@@ -31,7 +29,8 @@ public class ElementalEffect : MonoBehaviour
         if (other.CompareTag("Enemy"))
         {
             hasHit = true;
-            
+            EnemyDamage enemyDamage = other.GetComponent<EnemyDamage>();
+            enemyDamage.takeDamage(Damage);
             ApplyEffect(other.gameObject);
             Destroy(gameObject);
         }
@@ -44,7 +43,7 @@ public class ElementalEffect : MonoBehaviour
         {
             currentEffect = (StatusEffect)Random.Range(0, 3);
         }
-       
+
         Component effectComponent = null;
 
         switch (currentEffect)
@@ -72,13 +71,8 @@ public class ElementalEffect : MonoBehaviour
                 effectComponent = shockEffect;
                 break;
             case StatusEffect.Slow:
-                SlowEffect slowEffect = Enemy.AddComponent<SlowEffect>();
-                slowEffect.waterfallVFX = effectPrefab;
-                slowEffect.ApplySlow();
-                effectComponent = slowEffect;
+
                 break;
-
-
 
 
         }

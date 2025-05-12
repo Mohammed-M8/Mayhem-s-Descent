@@ -17,6 +17,7 @@ public class Combat : MonoBehaviour
     bool canSlash = true;
     public GameObject image1;
     public GameObject image2;
+
     public AbilityCooldownUI shootCooldownUI;
     public bool isPaused = false;
     [Header("Audio")]
@@ -34,8 +35,6 @@ public class Combat : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (isPaused) return;
-
         if (Input.GetMouseButtonDown(0)&&canSlash)
         {
 
@@ -109,9 +108,6 @@ public class Combat : MonoBehaviour
     {
         canShoot = false;
         if (image2 != null) image2.SetActive(false);
-
-        if (shootCooldownUI != null)
-            shootCooldownUI.TriggerCooldown(shootCoolDown); //show cooldown
 
         Shoot();
 

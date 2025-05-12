@@ -4850,6 +4850,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Damage: 50
+  hit: {fileID: 8300000, guid: 20a44431331a8c6459cb0e959a621624, type: 3}
 --- !u!54 &1202481055828790357
 Rigidbody:
   m_ObjectHideFlags: 0

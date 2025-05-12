@@ -19,6 +19,9 @@ public class Combat : MonoBehaviour
     public GameObject image2;
     public AbilityCooldownUI shootCooldownUI;
     public bool isPaused = false;
+    [Header("Audio")]
+    public AudioClip slashSound;
+    public AudioClip shootSound;
 
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -57,6 +60,8 @@ public class Combat : MonoBehaviour
         spawnPos.y = 0.5f;
         GameObject slash = Instantiate(slashPrefab, spawnPos, transform.rotation);
         GameObject.Destroy(slash, 0.4f);
+        SoundManager.Instance.PlaySound(slashSound,0.2f);
+
     }
 
     void Shoot()
@@ -79,6 +84,9 @@ public class Combat : MonoBehaviour
             {
                 rb.velocity = direction * projectileSpeed;
             }
+
+        SoundManager.Instance.PlaySound(shootSound);
+
 
         ElementalEffect effectScript = Projectile.GetComponent<ElementalEffect>();
         if (effectScript != null)

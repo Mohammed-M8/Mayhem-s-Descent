@@ -10,11 +10,6 @@ public class Slash : MonoBehaviour
 
     private void Start()
     {
-        PlayerStats stats = GameObject.FindWithTag("Player").GetComponent<PlayerStats>();
-        if (stats != null)
-            damage = stats.baseDamage;
-
-
         Destroy(gameObject, lifeTime); // Destroy after a short time
     }
 

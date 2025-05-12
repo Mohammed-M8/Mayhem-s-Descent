@@ -42,7 +42,11 @@ public class EnemyDamage : MonoBehaviour
         StartCoroutine(damageFlash());
         if (health <= 0)
         {
-            
+            if (PointsManager.Instance != null)
+            {
+                PointsManager.Instance.AddPoints(100); 
+            }
+
             Destroy(gameObject);
             GetComponent<EnemyDropper>().HandleDrop();
         }

@@ -80,6 +80,13 @@ public class EnemyFollow : MonoBehaviour
 
         while (Vector3.Distance(transform.position, player.transform.position) <= attackRange)
         {
+
+            if (PauseManager.IsPaused)
+            {
+                yield return null;
+                continue;
+            }
+      
             int dmg = Mathf.Max(1, Mathf.RoundToInt(damagePerSecond * Time.deltaTime));
             player.GetComponent<PlayerHealth>().takeDamage(dmg);
 

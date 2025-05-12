@@ -2,16 +2,18 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public class PlayerHealth : MonoBehaviour
 {
-    public int health = 100;
-    public int maxhealth = 200;
+    public int health = 1000;
+    public int maxhealth = 1000;
     Animator animator;
     private Renderer[] renderers;
     private Color[] originalColors;
 
     public Image bar;
+    public TMP_Text healthText;
 
     [Header("Screen Flash")]
     [SerializeField] private Image damageOverlay;    // drag your UI Image here
@@ -47,7 +49,7 @@ public class PlayerHealth : MonoBehaviour
             damageOverlay.color = c;
         }
 
-        maxhealth = health;
+        UpdateHealthBar();
 
     }
 
@@ -65,6 +67,9 @@ public class PlayerHealth : MonoBehaviour
     public void takeDamage(int damage)
     {
         health -= damage;
+
+        if (health < 0)
+            health = 0;
 
         UpdateHealthBar();
 
@@ -85,10 +90,9 @@ public class PlayerHealth : MonoBehaviour
 
     public void addHealth(int h)
     {
-        // increase health but cap at max
-        health = Mathf.Min(maxhealth, health + h);
 
-        // immediately refresh the UI bar
+        health = Mathf.Min(health + h, maxhealth);
+
         UpdateHealthBar();
     }
     private IEnumerator Die()
@@ -115,11 +119,16 @@ public class PlayerHealth : MonoBehaviour
         }
     }
 
-    void UpdateHealthBar()
+        public void UpdateHealthBar()
     {
         if (bar != null)
         {
             bar.fillAmount = (float)health / maxhealth;
+        }
+
+        if (healthText != null)
+        {
+            healthText.text = $"{health} / {maxhealth}";
         }
     }
 }

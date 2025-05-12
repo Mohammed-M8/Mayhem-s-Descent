@@ -1,55 +1,43 @@
-﻿// Assets/Scripts/HealthPack.cs
 using UnityEngine;
 
 public class HealthPack : MonoBehaviour
 {
     [Header("Heal Settings")]
-    [Tooltip("Amount of health to restore on pickup")]
-    public int healAmount = 50;
+    [Tooltip("Amount of health to restore on pickup")] public int healAmount = 50;
 
-    [Header("Magnetic Settings")]
-    [SerializeField, Tooltip("Distance at which the pack starts moving toward the player")]
-    private float attractRadius = 5f;
+    [Header("Animation Settings")]
+    [Tooltip("Vertical bob amplitude in world units")] public float bobAmplitude = 0.25f;
+    [Tooltip("Vertical bob frequency (cycles per second)")] public float bobFrequency = 1f;
+    [Tooltip("Rotation speed in degrees per second around each axis")] public Vector3 rotationSpeed = new Vector3(0f, 45f, 0f);
 
-    [SerializeField, Tooltip("Base speed when at the edge of attractRadius")]
-    private float moveSpeed = 5f;
-
-    private Transform player;
+    private Vector3 startPos;
 
     void Start()
     {
-        var p = GameObject.FindWithTag("Player");
-        if (p != null) player = p.transform;
+        // Cache starting position for bobbing
+        startPos = transform.position;
     }
 
     void Update()
     {
-        if (player == null) return;
+        // Bob up and down
+        float newY = startPos.y + Mathf.Sin(Time.time * bobFrequency * Mathf.PI * 2f) * bobAmplitude;
+        transform.position = new Vector3(startPos.x, newY, startPos.z);
 
-        float dist = Vector3.Distance(transform.position, player.position);
-        if (dist <= attractRadius)
-        {
-            // t goes from 0 (at edge) to 1 (on top of player)
-            float t = 1f - (dist / attractRadius);
-            // speed ramps from moveSpeed up to 2×moveSpeed as it gets closer
-            float currentSpeed = moveSpeed * (1f + t);
-
-            transform.position = Vector3.MoveTowards(
-                transform.position,
-                player.position,
-                currentSpeed * Time.deltaTime
-            );
-        }
+        // Rotate around local axes
+        transform.Rotate(rotationSpeed * Time.deltaTime, Space.Self);
     }
 
     private void OnTriggerEnter(Collider other)
     {
-        if (!other.CompareTag("Player")) return;
-
-        var ph = other.GetComponent<PlayerHealth>();
-        if (ph != null)
-            ph.addHealth(healAmount);
-
-        Destroy(gameObject);
+        if (other.CompareTag("Player"))
+        {
+            PlayerHealth ph = other.GetComponent<PlayerHealth>();
+            if (ph != null)
+            {
+                ph.addHealth(healAmount);
+            }
+            Destroy(gameObject);
+        }
     }
 }

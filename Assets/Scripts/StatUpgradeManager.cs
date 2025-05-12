@@ -67,8 +67,9 @@ public class StatUpgradeManager : MonoBehaviour
         {
             hpPercent++;
             float multiplier = 1f + (hpPercent / 100f);
+            int oldMax = playerHealth.maxhealth;
             playerHealth.maxhealth = Mathf.RoundToInt(baseMaxHealth * multiplier);
-            playerHealth.health = Mathf.Min(playerHealth.health, playerHealth.maxhealth);
+            playerHealth.health = Mathf.RoundToInt((float)playerHealth.health / oldMax * playerHealth.maxhealth);
             hpValueText.text = $"{hpPercent}%";
             playerHealth.UpdateHealthBar();
         }

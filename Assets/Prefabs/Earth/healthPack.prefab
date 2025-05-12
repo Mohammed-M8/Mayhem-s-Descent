@@ -93,10 +93,10 @@ SphereCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5995177511419696250}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 0.5400395
+  m_Radius: 0.999999
   m_Center: {x: -0.01, y: 0, z: 1.46}
 --- !u!114 &5995177511419696001
 MonoBehaviour:
@@ -110,9 +110,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9a53870a98c4f8e4ba3ef7aff4bd19d7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  healAmount: 50
-  bobAmplitude: 0.25
-  bobFrequency: 1
-  rotationSpeed: {x: 0, y: 0, z: 0}
+  healAmount: 200
   attractRadius: 5
   moveSpeed: 5

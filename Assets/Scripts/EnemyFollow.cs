@@ -86,7 +86,7 @@ public class EnemyFollow : MonoBehaviour
                 yield return null;
                 continue;
             }
-      
+
             int dmg = Mathf.Max(1, Mathf.RoundToInt(damagePerSecond * Time.deltaTime));
             player.GetComponent<PlayerHealth>().takeDamage(dmg);
 

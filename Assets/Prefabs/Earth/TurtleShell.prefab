@@ -638,7 +638,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4efc84ace665d8b47a517c60c12fd4f4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damagePerSecond: 50
+  damagePerSecond: 100
   followRange: 300
   attackRange: 1.5
 --- !u!195 &4503322553249655545
@@ -680,7 +680,6 @@ MonoBehaviour:
     prefab: {fileID: 5476704063761000387, guid: 93267a523bfcbe449a272f22b7a2f007,
       type: 3}
     dropChance: 90
-    pointValue: 2
   dropSpawnPoint: {fileID: 0}
   spawnYOffset: 0.45
 --- !u!1 &1532652994627396

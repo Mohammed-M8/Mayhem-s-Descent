@@ -933,7 +933,7 @@ MonoBehaviour:
   waves:
   - waveName: wave 1
     enemies:
-    - {fileID: 1500939411536426, guid: 274c4c35ed05ea14c87492064b3cadfd, type: 3}
+    - {fileID: 1931298151966786, guid: 928a1377c1cd4515b208fef3a396b8ea, type: 3}
     duration: 60
     spawnInterval: 0.7
   - waveName: wave 2
@@ -1430,7 +1430,7 @@ PrefabInstance:
         type: 3}
       propertyPath: projectile
       value: 
-      objectReference: {fileID: 5023125731010291333, guid: 4aaa29f3beccaa749b3efdb340487d03,
+      objectReference: {fileID: 5888612618858573316, guid: 6cdec17cd7b2a924eb67ced6c0e51d00,
         type: 3}
     - target: {fileID: 6803384627620619018, guid: 2dfbb63c9cdf7504faf4ff26b0581598,
         type: 3}

@@ -7,7 +7,7 @@ public class BossController : MonoBehaviour
     public Transform firePoint;
     public float projectileSpeed = 10f;
     public Transform player;
-
+    public float delay=2f;
     public Animator animator;
 
     private void Start()
@@ -62,7 +62,7 @@ public class BossController : MonoBehaviour
         while (true)
         {
             animator.SetTrigger("Cast");
-            yield return new WaitForSeconds(0.2f); // Adjust for attack frequency
+            yield return new WaitForSeconds(delay); // Adjust for attack frequency
         }
     }
 }

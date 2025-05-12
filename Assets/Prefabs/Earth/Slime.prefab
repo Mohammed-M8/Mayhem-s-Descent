@@ -430,6 +430,7 @@ GameObject:
   - component: {fileID: 178327322670543824}
   - component: {fileID: 8300790571269884014}
   - component: {fileID: 7254510260795997854}
+  - component: {fileID: -4116349429133483121}
   m_Layer: 0
   m_Name: Slime
   m_TagString: Enemy
@@ -570,3 +571,23 @@ MonoBehaviour:
   damagePerSecond: 50
   followRange: 300
   attackRange: 1
+--- !u!114 &-4116349429133483121
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1931298151966786}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e47be2838d0ee234593ef554df71d69c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dropTable:
+  - itemName: crystal1
+    prefab: {fileID: 5476704063761000387, guid: 93267a523bfcbe449a272f22b7a2f007,
+      type: 3}
+    dropChance: 90
+    pointValue: 2
+  dropSpawnPoint: {fileID: 0}
+  spawnYOffset: 0.45

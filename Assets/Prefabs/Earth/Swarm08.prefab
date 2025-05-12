@@ -145,9 +145,10 @@ GameObject:
   - component: {fileID: -3178641961081598419}
   - component: {fileID: 8363738437124086277}
   - component: {fileID: 5340128343741503827}
+  - component: {fileID: 6812243487662159708}
   m_Layer: 0
   m_Name: Swarm08
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -178,7 +179,7 @@ Animator:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2391359435489877134}
   m_Enabled: 1
-  m_Avatar: {fileID: 0}
+  m_Avatar: {fileID: 9000000, guid: c9b76ad37caa4a3aaeecb9a10f8ae126, type: 3}
   m_Controller: {fileID: 9100000, guid: aa154e9fd2c241ef97254e0195862deb, type: 2}
   m_CullingMode: 1
   m_UpdateMode: 0
@@ -285,6 +286,26 @@ MonoBehaviour:
   damagePerSecond: 50
   followRange: 300
   attackRange: 1
+--- !u!114 &6812243487662159708
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2391359435489877134}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e47be2838d0ee234593ef554df71d69c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dropTable:
+  - itemName: point1
+    prefab: {fileID: 5476704063761000387, guid: 93267a523bfcbe449a272f22b7a2f007,
+      type: 3}
+    dropChance: 90
+    pointValue: 2
+  dropSpawnPoint: {fileID: 0}
+  spawnYOffset: 0.45
 --- !u!1 &2594355968516817363
 GameObject:
   m_ObjectHideFlags: 0

@@ -90,8 +90,9 @@ public class PlayerHealth : MonoBehaviour
 
     public void addHealth(int h)
     {
-       
+
         health = Mathf.Min(health + h, maxhealth);
+
         UpdateHealthBar();
     }
     private IEnumerator Die()

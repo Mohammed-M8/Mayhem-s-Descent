@@ -113,9 +113,10 @@ GameObject:
   - component: {fileID: -7523817836628205211}
   - component: {fileID: 692945646266086934}
   - component: {fileID: -7239376093939039584}
+  - component: {fileID: -7246098893780969744}
   m_Layer: 0
   m_Name: Demon
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -129,7 +130,7 @@ Transform:
   m_GameObject: {fileID: 384647012700683576}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.4, y: 0.4, z: 0.4}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 4770911364481869812}
@@ -162,10 +163,10 @@ CapsuleCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 1
   m_Enabled: 1
-  m_Radius: 0.6
-  m_Height: 1
+  m_Radius: 1.215373
+  m_Height: 3.3249154
   m_Direction: 1
-  m_Center: {x: 0, y: 0.4, z: 0}
+  m_Center: {x: 0, y: 1.4624577, z: 0}
 --- !u!136 &-7449323544779417078
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -176,10 +177,10 @@ CapsuleCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  m_Radius: 0.6
-  m_Height: 1
+  m_Radius: 1.215373
+  m_Height: 3.3249154
   m_Direction: 1
-  m_Center: {x: 0, y: 0.4, z: 0}
+  m_Center: {x: 0, y: 1.4624577, z: 0}
 --- !u!54 &-7523817836628205211
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -233,6 +234,27 @@ NavMeshAgent:
   m_BaseOffset: 0
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
+--- !u!95 &-7246098893780969744
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 384647012700683576}
+  m_Enabled: 1
+  m_Avatar: {fileID: 9000000, guid: 22b66a73012e853429040a30bb032719, type: 3}
+  m_Controller: {fileID: 9100000, guid: 996e9567ca396674cb991f94f69ef049, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &570705553197094404
 GameObject:
   m_ObjectHideFlags: 0

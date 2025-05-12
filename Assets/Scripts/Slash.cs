@@ -7,6 +7,9 @@ public class Slash : MonoBehaviour
     public float lifeTime = 0.5f;
     public float speed = 5f;
     public int damage = 10;
+    public AudioClip hit;
+
+
 
     private void Start()
     {
@@ -27,6 +30,7 @@ public class Slash : MonoBehaviour
             EnemyDamage enemy = other.GetComponent<EnemyDamage>();
             if (enemy != null)
             {
+                SoundManager.Instance.PlaySound(hit,0.2f);
                 enemy.takeDamage(damage);
             }
         }

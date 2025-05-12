@@ -18,6 +18,7 @@ public class Combat : MonoBehaviour
     public GameObject image1;
     public GameObject image2;
     public AbilityCooldownUI shootCooldownUI;
+    public bool isPaused = false;
 
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -30,6 +31,8 @@ public class Combat : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (isPaused) return;
+
         if (Input.GetMouseButtonDown(0)&&canSlash)
         {
 

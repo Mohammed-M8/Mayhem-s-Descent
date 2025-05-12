@@ -6,15 +6,18 @@ public class PlayerMove : MonoBehaviour
     public float _speed = 5;
     public float _turnSpeed = 360;
     private Vector3 _input;
+    public bool isPaused = false;
 
     private void Update()
     {
+        if (isPaused) return;
         GatherInput();
         Look();
     }
 
     private void FixedUpdate()
     {
+        if (isPaused) return;
         Move();
     }
 

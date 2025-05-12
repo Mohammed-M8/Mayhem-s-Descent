@@ -544,7 +544,7 @@ NavMeshAgent:
   m_Enabled: 1
   m_AgentTypeID: 0
   m_Radius: 0.5
-  m_Speed: 2
+  m_Speed: 2.5
   m_Acceleration: 8
   avoidancePriority: 50
   m_AngularSpeed: 120
@@ -568,7 +568,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4efc84ace665d8b47a517c60c12fd4f4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damagePerSecond: 50
+  damagePerSecond: 100
   followRange: 300
   attackRange: 1
 --- !u!114 &-4116349429133483121
@@ -588,6 +588,5 @@ MonoBehaviour:
     prefab: {fileID: 5476704063761000387, guid: 93267a523bfcbe449a272f22b7a2f007,
       type: 3}
     dropChance: 90
-    pointValue: 2
   dropSpawnPoint: {fileID: 0}
   spawnYOffset: 0.45

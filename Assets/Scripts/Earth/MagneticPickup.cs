@@ -2,7 +2,7 @@ using UnityEngine;
 
 /// <summary>
 /// When the player gets within a certain radius, this pickup will move toward the player.
-/// Disappears when it actually contacts the player.
+/// It accelerates the closer it gets, and disappears on contact.
 /// </summary>
 public class MagneticPickup : MonoBehaviour
 {
@@ -10,31 +10,36 @@ public class MagneticPickup : MonoBehaviour
     [SerializeField, Tooltip("Distance at which the pickup starts moving toward the player")]
     private float attractRadius = 5f;
 
-    [SerializeField, Tooltip("Speed at which the pickup moves toward the player")]
-    private float moveSpeed = 5f;
+    [SerializeField, Tooltip("Base speed when at the edge of attractRadius")]
+    private float moveSpeed = 2f;
 
     private Transform player;
 
     void Start()
     {
-        GameObject p = GameObject.FindGameObjectWithTag("Player");
-        if (p != null)
-            player = p.transform;
+        var p = GameObject.FindWithTag("Player");
+        if (p != null) player = p.transform;
     }
 
     void Update()
     {
-        if (player == null)
-            return;
+        if (player == null) return;
 
+        // Current distance
         float dist = Vector3.Distance(transform.position, player.position);
         if (dist <= attractRadius)
         {
-            // Move toward the player's position
+            // Compute a t in [0,1], 0=at edge, 1=at player
+            float t = 1f - (dist / attractRadius);
+
+            // Speed scales from moveSpeed up to 2×moveSpeed as it approaches the player
+            float currentSpeed = moveSpeed * (1f + t);
+
+            // Move toward player
             transform.position = Vector3.MoveTowards(
                 transform.position,
                 player.position,
-                moveSpeed * Time.deltaTime
+                currentSpeed * Time.deltaTime
             );
         }
     }
@@ -42,8 +47,6 @@ public class MagneticPickup : MonoBehaviour
     void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Player"))
-        {
             Destroy(gameObject);
-        }
     }
 }

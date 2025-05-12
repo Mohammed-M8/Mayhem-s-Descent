@@ -72,8 +72,13 @@ public class ElementalEffect : MonoBehaviour
                 effectComponent = shockEffect;
                 break;
             case StatusEffect.Slow:
-
+                SlowEffect slowEffect = Enemy.AddComponent<SlowEffect>();
+                slowEffect.waterfallVFX = effectPrefab;
+                slowEffect.ApplySlow();
+                effectComponent = slowEffect;
                 break;
+
+
 
 
         }

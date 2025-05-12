@@ -10,12 +10,12 @@ GameObject:
   m_Component:
   - component: {fileID: 4980173413312531347}
   - component: {fileID: 4980173413319454041}
-  - component: {fileID: -5590898028740016929}
-  - component: {fileID: -8637219850185456840}
   - component: {fileID: -4307437914090524850}
   - component: {fileID: -1245185036059324004}
   - component: {fileID: -8385474900236337265}
   - component: {fileID: -9011320900887570036}
+  - component: {fileID: 9020076319466990098}
+  - component: {fileID: 6987787405883575349}
   m_Layer: 0
   m_Name: Albino
   m_TagString: Enemy
@@ -32,7 +32,7 @@ Transform:
   m_GameObject: {fileID: 4980173413312103157}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.8, y: 0.8, z: 0.8}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 4980173413312605139}
@@ -61,34 +61,6 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
---- !u!136 &-5590898028740016929
-CapsuleCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4980173413312103157}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  m_Radius: 3.4240398
-  m_Height: 6.8480797
-  m_Direction: 1
-  m_Center: {x: 0.07534981, y: 2.5, z: 0}
---- !u!136 &-8637219850185456840
-CapsuleCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4980173413312103157}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  m_Radius: 3.4240398
-  m_Height: 6.8480797
-  m_Direction: 1
-  m_Center: {x: 0.07534981, y: 2.5, z: 0}
 --- !u!114 &-4307437914090524850
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -155,7 +127,33 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damagePerSecond: 50
   followRange: 300
-  attackRange: 1
+  attackRange: 4
+--- !u!65 &9020076319466990098
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4980173413312103157}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 6.8, y: 4.6874604, z: 10.571308}
+  m_Center: {x: 0, y: 1.8437302, z: -0.98328185}
+--- !u!65 &6987787405883575349
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4980173413312103157}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 6, y: 4, z: 10.571308}
+  m_Center: {x: 0, y: 1.8437302, z: -0.98328185}
 --- !u!1 &4980173413312103553
 GameObject:
   m_ObjectHideFlags: 0

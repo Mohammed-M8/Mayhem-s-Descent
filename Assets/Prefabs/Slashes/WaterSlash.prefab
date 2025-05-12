@@ -19498,6 +19498,7 @@ MonoBehaviour:
   lifeTime: 0.3
   speed: 3
   damage: 10
+  hit: {fileID: 8300000, guid: a029caaff107c394b8b7207afe457250, type: 3}
 --- !u!54 &3164461259335078744
 Rigidbody:
   m_ObjectHideFlags: 0

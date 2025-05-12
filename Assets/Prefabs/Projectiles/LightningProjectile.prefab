@@ -4637,7 +4637,7 @@ GameObject:
   - component: {fileID: -616568145672832964}
   m_Layer: 8
   m_Name: LightningProjectile
-  m_TagString: Untagged
+  m_TagString: PlayerWeapon
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

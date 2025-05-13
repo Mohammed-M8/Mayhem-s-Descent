@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 8621345172391388612}
   - component: {fileID: -3415769241207803992}
   - component: {fileID: 4118437498583087911}
+  - component: {fileID: -1111639778962901568}
   m_Layer: 0
   m_Name: Crystal1
   m_TagString: Untagged
@@ -110,5 +111,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 112a51f6dc4b43f4d8ab6a0068cfdfb5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  attractRadius: 2
+  attractRadius: 3
   moveSpeed: 5
+--- !u!114 &-1111639778962901568
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7828900684891505681}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 29e0ffec4fa13184687daca911fae390, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pointValue: 10
+  rotationSpeed: {x: 0, y: 180, z: 0}
+  collectible: {fileID: 8300000, guid: 92e0cc849b889e24187c20958a9ec5f2, type: 3}

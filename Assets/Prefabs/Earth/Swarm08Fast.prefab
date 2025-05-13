@@ -147,7 +147,7 @@ GameObject:
   - component: {fileID: 5340128343741503827}
   - component: {fileID: 6812243487662159708}
   m_Layer: 9
-  m_Name: Swarm08
+  m_Name: Swarm08Fast
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -259,7 +259,7 @@ NavMeshAgent:
   m_Enabled: 1
   m_AgentTypeID: 0
   m_Radius: 0.5
-  m_Speed: 3
+  m_Speed: 1000
   m_Acceleration: 8
   avoidancePriority: 50
   m_AngularSpeed: 120

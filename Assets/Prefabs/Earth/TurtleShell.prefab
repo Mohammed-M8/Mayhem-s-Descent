@@ -640,7 +640,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damagePerSecond: 50
   followRange: 300
-  attackRange: 1.5
+  attackRange: 1
 --- !u!195 &4503322553249655545
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -680,7 +680,10 @@ MonoBehaviour:
     prefab: {fileID: 5476704063761000387, guid: 93267a523bfcbe449a272f22b7a2f007,
       type: 3}
     dropChance: 90
-    pointValue: 2
+  - itemName: point2
+    prefab: {fileID: 6447043077304807295, guid: 44a1e1330c19db74a83a6124ebbfa934,
+      type: 3}
+    dropChance: 20
   dropSpawnPoint: {fileID: 0}
   spawnYOffset: 0.45
 --- !u!1 &1532652994627396

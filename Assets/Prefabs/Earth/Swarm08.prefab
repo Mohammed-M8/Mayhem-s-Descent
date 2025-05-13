@@ -140,10 +140,10 @@ GameObject:
   - component: {fileID: 3054566516119258676}
   - component: {fileID: 3309786654644649927}
   - component: {fileID: 1425894718158371357}
+  - component: {fileID: 1498791452917882512}
   - component: {fileID: -7592813310674529144}
   - component: {fileID: -3178641961081598419}
   - component: {fileID: 8363738437124086277}
-  - component: {fileID: 1498791452917882512}
   - component: {fileID: 5340128343741503827}
   - component: {fileID: 6812243487662159708}
   m_Layer: 9
@@ -205,6 +205,20 @@ CapsuleCollider:
   m_Height: 0.6
   m_Direction: 1
   m_Center: {x: 0, y: 0.4, z: 0}
+--- !u!114 &1498791452917882512
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2391359435489877134}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6f3d06ea26fa2e346973e06a5852e61c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health: 25
+  bar: {fileID: 0}
 --- !u!136 &-7592813310674529144
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -245,7 +259,7 @@ NavMeshAgent:
   m_Enabled: 1
   m_AgentTypeID: 0
   m_Radius: 0.5
-  m_Speed: 3
+  m_Speed: 2
   m_Acceleration: 8
   avoidancePriority: 50
   m_AngularSpeed: 120
@@ -257,20 +271,6 @@ NavMeshAgent:
   m_BaseOffset: 0
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
---- !u!114 &1498791452917882512
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2391359435489877134}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6f3d06ea26fa2e346973e06a5852e61c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  health: 10
-  bar: {fileID: 0}
 --- !u!114 &5340128343741503827
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -303,6 +303,7 @@ MonoBehaviour:
     prefab: {fileID: 5476704063761000387, guid: 93267a523bfcbe449a272f22b7a2f007,
       type: 3}
     dropChance: 90
+    pointValue: 2
   dropSpawnPoint: {fileID: 0}
   spawnYOffset: 0.45
 --- !u!1 &2594355968516817363

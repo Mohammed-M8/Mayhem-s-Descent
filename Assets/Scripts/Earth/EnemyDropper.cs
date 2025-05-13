@@ -5,48 +5,70 @@ using UnityEngine;
 [System.Serializable]
 public class DropItem
 {
-    public string itemName;     // optional label
-    public GameObject prefab;      // what to spawn
+    [Tooltip("Name for this drop (optional)")]
+    public string itemName;
+
+    [Tooltip("Prefab to spawn as a drop (optional)")]
+    public GameObject prefab;
+
+    [Tooltip("Chance (0-100) for this item to drop")]
     [Range(0f, 100f)]
-    public float dropChance;   // % chance to drop
+    public float dropChance;
+
+    [Tooltip("Point value awarded when this item drops (for future use)")]
+    public int pointValue;
 }
 
 public class EnemyDropper : MonoBehaviour
 {
     [Header("Drop Table Settings")]
+    [Tooltip("Configure drop items, chances, and point values in the Inspector.")]
     public List<DropItem> dropTable = new List<DropItem>();
 
-    [Tooltip("Where to spawn the drop; leave empty to use enemy position")]
+    [Tooltip("Optional: where to spawn the drop prefab")]
     public Transform dropSpawnPoint;
 
-    [Tooltip("Vertical offset so the drop floats above ground")]
+    [Tooltip("Vertical offset (in world units) to raise the spawned drop")]
     public float spawnYOffset = 1f;
 
     /// <summary>
-    /// Call this when the enemy dies.
+    /// Call this method when the enemy dies to process drops.
     /// </summary>
     public void HandleDrop()
     {
-        float total = 0f;
-        foreach (var e in dropTable)
-            total += e.dropChance;
+        // Calculate total combined chance
+        float totalChance = 0f;
+        foreach (var entry in dropTable)
+            totalChance += entry.dropChance;
 
-        float roll = Random.Range(0f, total), cum = 0f;
+        // Roll a random value within the total chance
+        float roll = Random.Range(0f, totalChance);
+        float cumulative = 0f;
+
+        // Find which item corresponds to the rolled value
         foreach (var entry in dropTable)
         {
-            cum += entry.dropChance;
-            if (roll <= cum && entry.prefab != null)
+            cumulative += entry.dropChance;
+            if (roll <= cumulative)
             {
-                // spawn it
-                Vector3 pos = (dropSpawnPoint != null
-                    ? dropSpawnPoint.position
-                    : transform.position);
-                pos.y += spawnYOffset;
-                var drop = Instantiate(entry.prefab, pos, entry.prefab.transform.rotation);
+                if (entry.prefab != null)
+                {
+                    // Determine spawn position
+                    Vector3 pos = dropSpawnPoint != null
+                        ? dropSpawnPoint.position
+                        : transform.position;
+                    pos.y += spawnYOffset;
 
-                // ensure it has a PointPickup
-                if (drop.GetComponent<PointPickup>() == null)
+                    // Instantiate the drop
+                    GameObject drop = Instantiate(
+                        entry.prefab,
+                        pos,
+                        entry.prefab.transform.rotation
+                    );
+
+                    // Add the pickup behavior so it vanishes on player contact
                     drop.AddComponent<PointPickup>();
+                }
 
                 break;
             }

@@ -507,7 +507,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damagePerSecond: 50
   followRange: 300
-  attackRange: 1
+  attackRange: 2
 --- !u!1 &2036772676278447205
 GameObject:
   m_ObjectHideFlags: 0

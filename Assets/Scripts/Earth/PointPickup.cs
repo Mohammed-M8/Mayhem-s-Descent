@@ -12,6 +12,7 @@ public class PointPickup : MonoBehaviour
 
     private bool collected;
 
+    public AudioClip collectible;
     void Update()
     {
         // Spin only on the world-Y axis so it's always visible
@@ -26,6 +27,14 @@ public class PointPickup : MonoBehaviour
 
         collected = true;
         PointsManager.Instance?.AddPoints(pointValue);
+        if (SoundManager.Instance != null)
+        {
+            if (collectible != null)
+            {
+                SoundManager.Instance.PlaySound(collectible);
+            }
+            
+        }
         Destroy(gameObject);
     }
 }

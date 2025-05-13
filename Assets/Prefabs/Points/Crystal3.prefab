@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 6269526508797560342}
   - component: {fileID: 1863955436244969961}
   - component: {fileID: -7700240666072635149}
+  - component: {fileID: -7935945876022396325}
   m_Layer: 0
   m_Name: Crystal3
   m_TagString: Untagged
@@ -93,7 +94,7 @@ BoxCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5476704063761000387}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 0.003287337, y: 0.002895812, z: 0.008957031}
@@ -110,5 +111,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 112a51f6dc4b43f4d8ab6a0068cfdfb5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  attractRadius: 2
+  attractRadius: 3
   moveSpeed: 5
+--- !u!114 &-7935945876022396325
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5476704063761000387}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 29e0ffec4fa13184687daca911fae390, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pointValue: 1
+  rotationSpeed: {x: 0, y: 180, z: 0}
+  collectible: {fileID: 8300000, guid: 92e0cc849b889e24187c20958a9ec5f2, type: 3}

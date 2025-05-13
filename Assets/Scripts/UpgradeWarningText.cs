@@ -2,7 +2,6 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
-
 public class UpgradeWarningText : MonoBehaviour
 {
     public TMP_Text warningText;
@@ -10,11 +9,10 @@ public class UpgradeWarningText : MonoBehaviour
 
     private Coroutine hideRoutine;
 
-
     void Start()
     {
         if (warningText != null)
-            warningText.gameObject.SetActive(false);
+            warningText.gameObject.SetActive(false); // Ensures it's hidden at start
     }
 
     public void Show()
@@ -28,14 +26,14 @@ public class UpgradeWarningText : MonoBehaviour
         if (hideRoutine != null)
             StopCoroutine(hideRoutine);
 
-        warningText.gameObject.SetActive(true);
-        warningText.text = "Not enough points!"; // Optional: reapply in case it was cleared
+        warningText.gameObject.SetActive(true);           // show it
+        warningText.text = "Not enough points!";          // update text if needed
         hideRoutine = StartCoroutine(HideAfterDelay());
     }
 
     IEnumerator HideAfterDelay()
     {
         yield return new WaitForSecondsRealtime(duration);
-        warningText.gameObject.SetActive(false);
+        warningText.gameObject.SetActive(false);          // hide again
     }
 }

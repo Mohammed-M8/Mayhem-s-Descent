@@ -2790,6 +2790,10 @@ MonoBehaviour:
   shootCoolDown: 1
   image1: {fileID: 4618952844867615013}
   image2: {fileID: 4786262696642418413}
+  shootCooldownUI: {fileID: 0}
+  isPaused: 0
+  slashSound: {fileID: 0}
+  shootSound: {fileID: 0}
 --- !u!114 &6803384627620619018
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2805,6 +2809,7 @@ MonoBehaviour:
   _rb: {fileID: 0}
   _speed: 5
   _turnSpeed: 1000
+  isPaused: 0
 --- !u!54 &8040912177695564857
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -2862,6 +2867,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mainCamera: {fileID: 0}
+  isPaused: 0
+  groundMask:
+    serializedVersion: 2
+    m_Bits: 64
 --- !u!114 &4107892237565786860
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2876,6 +2885,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   health: 200
   maxhealth: 200
+  bar: {fileID: 0}
+  healthText: {fileID: 0}
+  damageOverlay: {fileID: 0}
+  overlayMaxAlpha: 0.4
+  fadeSpeed: 1.5
 --- !u!1 &8206070634150816031
 GameObject:
   m_ObjectHideFlags: 0

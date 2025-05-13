@@ -60,6 +60,7 @@ public class Combat : MonoBehaviour
         spawnPos.y = 0.5f;
         GameObject slash = Instantiate(slashPrefab, spawnPos, transform.rotation);
         GameObject.Destroy(slash, 0.4f);
+        if(slashSound!=null)
         SoundManager.Instance.PlaySound(slashSound,0.2f);
 
     }

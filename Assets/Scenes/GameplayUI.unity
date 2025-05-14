@@ -1614,6 +1614,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: GameplayUI
       objectReference: {fileID: 0}
+    - target: {fileID: 2762659091324106700, guid: 75ddea8a1064a944ca8ee56d242c0050,
+        type: 3}
+      propertyPath: m_RenderMode
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2762659091324106701, guid: 75ddea8a1064a944ca8ee56d242c0050,
         type: 3}
       propertyPath: m_Pivot.x

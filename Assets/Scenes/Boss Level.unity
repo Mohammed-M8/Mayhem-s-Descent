@@ -19616,10 +19616,20 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1788340940683663382, guid: e255bd46300d07741bf25d538a14edbc,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1788340940683663385, guid: e255bd46300d07741bf25d538a14edbc,
         type: 3}
       propertyPath: m_Name
       value: DamageCanvas
+      objectReference: {fileID: 0}
+    - target: {fileID: 1788340940683663385, guid: e255bd46300d07741bf25d538a14edbc,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e255bd46300d07741bf25d538a14edbc, type: 3}
@@ -20972,6 +20982,11 @@ PrefabInstance:
       propertyPath: bgmClip
       value: 
       objectReference: {fileID: 8300000, guid: 6383fa29f26eea849bbedf28cb621062, type: 3}
+    - target: {fileID: 4901376195556230483, guid: d1f1392e9d6979b4381ecbf318f5d893,
+        type: 3}
+      propertyPath: fadeDuration
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4901376195556230492, guid: d1f1392e9d6979b4381ecbf318f5d893,
         type: 3}
       propertyPath: m_Name

@@ -201,6 +201,7 @@ GameObject:
   - component: {fileID: -5701385953646008188}
   - component: {fileID: -5202653254281065341}
   - component: {fileID: -5512076950574828115}
+  - component: {fileID: 6400225810566281797}
   m_Layer: 0
   m_Name: GreenBlob
   m_TagString: Enemy
@@ -287,7 +288,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6f3d06ea26fa2e346973e06a5852e61c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 25
+  health: 50
   bar: {fileID: 0}
 --- !u!54 &-5701385953646008188
 Rigidbody:
@@ -315,7 +316,7 @@ NavMeshAgent:
   m_Enabled: 1
   m_AgentTypeID: 0
   m_Radius: 1.16
-  m_Speed: 2
+  m_Speed: 3
   m_Acceleration: 8
   avoidancePriority: 50
   m_AngularSpeed: 120
@@ -342,6 +343,25 @@ MonoBehaviour:
   damagePerSecond: 50
   followRange: 300
   attackRange: 1
+--- !u!114 &6400225810566281797
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4833226714572113397}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e47be2838d0ee234593ef554df71d69c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dropTable:
+  - itemName: crystal1
+    prefab: {fileID: 5476704063761000387, guid: 93267a523bfcbe449a272f22b7a2f007,
+      type: 3}
+    dropChance: 90
+  dropSpawnPoint: {fileID: 0}
+  spawnYOffset: 0.45
 --- !u!1 &4915330302648511036
 GameObject:
   m_ObjectHideFlags: 0

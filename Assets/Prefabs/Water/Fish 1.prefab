@@ -475,6 +475,7 @@ GameObject:
   - component: {fileID: -317386153509605506}
   - component: {fileID: -2232170617434928005}
   - component: {fileID: 4944271298977256388}
+  - component: {fileID: 6381171421224229162}
   m_Layer: 0
   m_Name: Fish 1
   m_TagString: Enemy
@@ -562,7 +563,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6f3d06ea26fa2e346973e06a5852e61c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 25
+  health: 70
   bar: {fileID: 0}
 --- !u!54 &-317386153509605506
 Rigidbody:
@@ -590,7 +591,7 @@ NavMeshAgent:
   m_Enabled: 1
   m_AgentTypeID: 0
   m_Radius: 1.17
-  m_Speed: 2
+  m_Speed: 4
   m_Acceleration: 8
   avoidancePriority: 50
   m_AngularSpeed: 120
@@ -614,9 +615,32 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4efc84ace665d8b47a517c60c12fd4f4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damagePerSecond: 50
+  damagePerSecond: 80
   followRange: 300
   attackRange: 1.5
+--- !u!114 &6381171421224229162
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8733214384970010176}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e47be2838d0ee234593ef554df71d69c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dropTable:
+  - itemName: point1
+    prefab: {fileID: 5476704063761000387, guid: 93267a523bfcbe449a272f22b7a2f007,
+      type: 3}
+    dropChance: 90
+  - itemName: point2
+    prefab: {fileID: 6447043077304807295, guid: 44a1e1330c19db74a83a6124ebbfa934,
+      type: 3}
+    dropChance: 20
+  dropSpawnPoint: {fileID: 0}
+  spawnYOffset: 0.45
 --- !u!1 &9085815429876949385
 GameObject:
   m_ObjectHideFlags: 0

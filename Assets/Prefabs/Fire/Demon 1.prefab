@@ -1620,6 +1620,7 @@ GameObject:
   - component: {fileID: 4068127712114258681}
   - component: {fileID: 1999148768448042103}
   - component: {fileID: 6023291409838666307}
+  - component: {fileID: -4427946964157691409}
   m_Layer: 0
   m_Name: Demon 1
   m_TagString: Enemy
@@ -1658,7 +1659,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6f3d06ea26fa2e346973e06a5852e61c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 50
+  health: 10
   bar: {fileID: 0}
 --- !u!136 &-9153449472112277315
 CapsuleCollider:
@@ -1716,7 +1717,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4efc84ace665d8b47a517c60c12fd4f4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damagePerSecond: 50
+  damagePerSecond: 70
   followRange: 300
   attackRange: 1.5
 --- !u!195 &1999148768448042103
@@ -1729,7 +1730,7 @@ NavMeshAgent:
   m_Enabled: 1
   m_AgentTypeID: 0
   m_Radius: 0.5
-  m_Speed: 2
+  m_Speed: 4
   m_Acceleration: 8
   avoidancePriority: 50
   m_AngularSpeed: 120
@@ -1762,6 +1763,25 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &-4427946964157691409
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6769161106640595742}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e47be2838d0ee234593ef554df71d69c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dropTable:
+  - itemName: crystal1
+    prefab: {fileID: 5476704063761000387, guid: 93267a523bfcbe449a272f22b7a2f007,
+      type: 3}
+    dropChance: 90
+  dropSpawnPoint: {fileID: 0}
+  spawnYOffset: 0.45
 --- !u!1 &6771669565099795391
 GameObject:
   m_ObjectHideFlags: 0

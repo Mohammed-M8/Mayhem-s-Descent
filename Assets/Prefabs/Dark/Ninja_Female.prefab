@@ -1006,6 +1006,7 @@ GameObject:
   - component: {fileID: 2503007369130354981}
   - component: {fileID: 778319595593652534}
   - component: {fileID: 7351860237923964762}
+  - component: {fileID: 2578103808818144181}
   m_Layer: 9
   m_Name: Ninja_Female
   m_TagString: Enemy
@@ -1146,6 +1147,33 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &2578103808818144181
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8661603776030310891}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e47be2838d0ee234593ef554df71d69c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dropTable:
+  - itemName: point1
+    prefab: {fileID: 5476704063761000387, guid: 93267a523bfcbe449a272f22b7a2f007,
+      type: 3}
+    dropChance: 50
+  - itemName: point2
+    prefab: {fileID: 6447043077304807295, guid: 44a1e1330c19db74a83a6124ebbfa934,
+      type: 3}
+    dropChance: 30
+  - itemName: point3
+    prefab: {fileID: 7828900684891505681, guid: a2c4d8435cbe46545adcdc9fd630ce20,
+      type: 3}
+    dropChance: 20
+  dropSpawnPoint: {fileID: 0}
+  spawnYOffset: 0.45
 --- !u!1 &8904147409830057818
 GameObject:
   m_ObjectHideFlags: 0

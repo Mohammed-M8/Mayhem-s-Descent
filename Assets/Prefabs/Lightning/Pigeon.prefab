@@ -318,7 +318,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5101813096605530134}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -0.66, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0.6, y: 0.6, z: 0.6}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -399,7 +399,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damagePerSecond: 50
   followRange: 300
-  attackRange: 1.5
+  attackRange: 1.1
 --- !u!195 &107195692766267135
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -410,7 +410,7 @@ NavMeshAgent:
   m_Enabled: 1
   m_AgentTypeID: 0
   m_Radius: 1
-  m_Speed: 2
+  m_Speed: 3
   m_Acceleration: 8
   avoidancePriority: 50
   m_AngularSpeed: 120
@@ -432,7 +432,7 @@ Animator:
   m_GameObject: {fileID: 5101813096605530134}
   m_Enabled: 1
   m_Avatar: {fileID: 9000000, guid: e8aa1693419820343b2409a5ae739da0, type: 3}
-  m_Controller: {fileID: 9100000, guid: 165783d05dfce934aafe87a2449e1545, type: 2}
+  m_Controller: {fileID: 9100000, guid: 9ae936278d8c9d940a176019c958583d, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -468,7 +468,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5407700728482564646}
   m_LocalRotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071067}
-  m_LocalPosition: {x: -0, y: 0, z: 0}
+  m_LocalPosition: {x: -0, y: -0.5, z: 0}
   m_LocalScale: {x: 100, y: 100, z: 100}
   m_ConstrainProportionsScale: 0
   m_Children: []

@@ -290,7 +290,7 @@ NavMeshAgent:
   m_Enabled: 1
   m_AgentTypeID: 0
   m_Radius: 0.5
-  m_Speed: 2
+  m_Speed: 3
   m_Acceleration: 8
   avoidancePriority: 50
   m_AngularSpeed: 120
@@ -334,12 +334,10 @@ MonoBehaviour:
     prefab: {fileID: 5476704063761000387, guid: 93267a523bfcbe449a272f22b7a2f007,
       type: 3}
     dropChance: 70
-    pointValue: 2
   - itemName: point2
     prefab: {fileID: 6447043077304807295, guid: 44a1e1330c19db74a83a6124ebbfa934,
       type: 3}
     dropChance: 20
-    pointValue: 5
   dropSpawnPoint: {fileID: 0}
   spawnYOffset: 0.45
 --- !u!1 &2043936995899903168

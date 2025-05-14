@@ -4896,7 +4896,7 @@ MonoBehaviour:
   effectPrefab: {fileID: 465201679589920815, guid: 4881cc0fd65a94845987080a14aaa59a,
     type: 3}
   effect: 1
-  effectDuration: 3
+  effectDuration: 6
 --- !u!1 &5804505360738574405
 GameObject:
   m_ObjectHideFlags: 0

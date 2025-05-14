@@ -271,6 +271,7 @@ GameObject:
   - component: {fileID: 5553608769838691202}
   - component: {fileID: -5226913986148797630}
   - component: {fileID: -1203570041790726858}
+  - component: {fileID: 4959718331665130621}
   m_Layer: 0
   m_Name: Alpaking
   m_TagString: Enemy
@@ -307,7 +308,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6f3d06ea26fa2e346973e06a5852e61c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 50
+  health: 10
   bar: {fileID: 0}
 --- !u!136 &5915109374335252108
 CapsuleCollider:
@@ -378,7 +379,7 @@ NavMeshAgent:
   m_Enabled: 1
   m_AgentTypeID: 0
   m_Radius: 1.3
-  m_Speed: 2
+  m_Speed: 4
   m_Acceleration: 8
   avoidancePriority: 50
   m_AngularSpeed: 120
@@ -411,6 +412,25 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &4959718331665130621
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4670961633565507999}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e47be2838d0ee234593ef554df71d69c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dropTable:
+  - itemName: crystal1
+    prefab: {fileID: 5476704063761000387, guid: 93267a523bfcbe449a272f22b7a2f007,
+      type: 3}
+    dropChance: 90
+  dropSpawnPoint: {fileID: 0}
+  spawnYOffset: 0.45
 --- !u!1 &4984046849468068678
 GameObject:
   m_ObjectHideFlags: 0

@@ -6,8 +6,10 @@ public class SoundManager : MonoBehaviour
 {
     public static SoundManager Instance;
 
-    private AudioSource sfxSource;   
-    private AudioSource musicSource; 
+    private AudioSource sfxSource;
+    private AudioSource musicSource;
+    private float currentMusicVolume = 1f;
+    private float currentSFXVolume = 1f;
 
     private void Awake()
     {
@@ -24,9 +26,8 @@ public class SoundManager : MonoBehaviour
 
         sfxSource = gameObject.AddComponent<AudioSource>();
         musicSource = gameObject.AddComponent<AudioSource>();
-        musicSource.loop = true;
-    }
 
+    }
     public void PlaySound(AudioClip clip, float volume = 1f)
     {
         if (clip != null)
@@ -38,7 +39,7 @@ public class SoundManager : MonoBehaviour
     {
         if (music == null || (musicSource.clip == music && musicSource.isPlaying)) return;
 
-        StopAllCoroutines(); 
+        StopAllCoroutines();
         StartCoroutine(FadeInNewMusic(music, fadeDuration));
     }
 
@@ -48,44 +49,41 @@ public class SoundManager : MonoBehaviour
         musicSource.Stop();
     }
 
+
     public void SetMusicVolume(float volume)
     {
-        musicSource.volume = Mathf.Clamp01(volume);
+        currentMusicVolume = Mathf.Clamp01(volume);
+        musicSource.volume = currentMusicVolume;
+        Debug.Log("Set music volume to: " + currentMusicVolume);
     }
 
     public void SetSFXVolume(float volume)
     {
-        sfxSource.volume = Mathf.Clamp01(volume);
+        currentSFXVolume = Mathf.Clamp01(volume);
+        sfxSource.volume = currentSFXVolume;
+        Debug.Log("Set SFX volume to: " + currentSFXVolume);
     }
+
 
     private IEnumerator FadeInNewMusic(AudioClip newClip, float duration)
     {
-        float startVolume = musicSource.volume;
+        float startVolume = 0f;
         float currentTime = 0f;
-
-        // Fade out
-        while (currentTime < duration)
-        {
-            currentTime += Time.deltaTime;
-            musicSource.volume = Mathf.Lerp(startVolume, 0f, currentTime / duration);
-            yield return null;
-        }
 
         musicSource.Stop();
         musicSource.clip = newClip;
+        musicSource.volume = 0f;
         musicSource.Play();
 
-        // Fade in
-        currentTime = 0f;
+        // Fade in to the CURRENT saved volume
         while (currentTime < duration)
         {
             currentTime += Time.deltaTime;
-            musicSource.volume = Mathf.Lerp(0f, startVolume, currentTime / duration);
+            musicSource.volume = Mathf.Lerp(startVolume, currentMusicVolume, currentTime / duration);
             yield return null;
         }
 
-        musicSource.volume = startVolume; // ensure exact reset
+        musicSource.volume = currentMusicVolume;
     }
 
 }
-

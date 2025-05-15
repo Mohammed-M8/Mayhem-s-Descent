@@ -22,6 +22,14 @@ public class PauseManager : MonoBehaviour
         }
     }
 
+    void Awake()
+    {
+        // Always start un-paused
+        IsPaused = false;
+        Time.timeScale = 1f;
+    }
+
+
     public void PauseGame()
     {
         IsPaused = true;

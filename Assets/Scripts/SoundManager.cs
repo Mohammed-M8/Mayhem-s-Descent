@@ -34,7 +34,7 @@ public class SoundManager : MonoBehaviour
     }
 
 
-    public void PlayMusic(AudioClip music, float fadeDuration = 1f)
+    public void PlayMusic(AudioClip music, float fadeDuration = 0f)
     {
         if (music == null || (musicSource.clip == music && musicSource.isPlaying)) return;
 

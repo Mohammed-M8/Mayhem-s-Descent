@@ -379,7 +379,6 @@ GameObject:
   - component: {fileID: 55142412}
   - component: {fileID: 55142411}
   - component: {fileID: 55142414}
-  - component: {fileID: 55142416}
   - component: {fileID: 55142415}
   m_Layer: 5
   m_Name: 'Electro  '
@@ -461,7 +460,7 @@ MonoBehaviour:
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 1
+          m_IntArgument: 2
           m_FloatArgument: 0
           m_StringArgument: Electro
           m_BoolArgument: 0
@@ -550,18 +549,6 @@ MonoBehaviour:
   m_FlexibleWidth: -1
   m_FlexibleHeight: -1
   m_LayoutPriority: 1
---- !u!114 &55142416
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 55142409}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e4698240532a8ec4fa2e0ffec68e9d33, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &67134911
 GameObject:
   m_ObjectHideFlags: 0
@@ -824,7 +811,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &84781420
 GameObject:
@@ -2303,7 +2290,7 @@ PrefabInstance:
     - target: {fileID: 4901376195556230482, guid: d1f1392e9d6979b4381ecbf318f5d893,
         type: 3}
       propertyPath: m_RootOrder
-      value: 9
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 4901376195556230482, guid: d1f1392e9d6979b4381ecbf318f5d893,
         type: 3}
@@ -3326,8 +3313,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 861399071}
-        m_TargetAssemblyTypeName: MainMenu, Assembly-CSharp
+      - m_Target: {fileID: 977182336}
+        m_TargetAssemblyTypeName: LevelLoader, Assembly-CSharp
         m_MethodName: QuitGame
         m_Mode: 1
         m_Arguments:
@@ -3920,50 +3907,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 787248466}
   m_CullTransparentMesh: 1
---- !u!1 &861399069
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 861399070}
-  - component: {fileID: 861399071}
-  m_Layer: 0
-  m_Name: MainMenu
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 0
---- !u!4 &861399070
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 861399069}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 4.7211623, y: -5.82829, z: 0.016117096}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 4
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &861399071
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 861399069}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0943238bfcc6a7341adde93ccddc4705, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &904457796
 GameObject:
   m_ObjectHideFlags: 0
@@ -3977,7 +3920,6 @@ GameObject:
   - component: {fileID: 904457799}
   - component: {fileID: 904457798}
   - component: {fileID: 904457801}
-  - component: {fileID: 904457803}
   - component: {fileID: 904457802}
   m_Layer: 5
   m_Name: Lava Level
@@ -4059,7 +4001,7 @@ MonoBehaviour:
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 3
+          m_IntArgument: 4
           m_FloatArgument: 0
           m_StringArgument: Lava Level
           m_BoolArgument: 0
@@ -4148,18 +4090,6 @@ MonoBehaviour:
   m_FlexibleWidth: -1
   m_FlexibleHeight: -1
   m_LayoutPriority: 1
---- !u!114 &904457803
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 904457796}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e4698240532a8ec4fa2e0ffec68e9d33, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &910176472
 GameObject:
   m_ObjectHideFlags: 0
@@ -4527,7 +4457,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &996209980
 GameObject:
@@ -7042,7 +6972,6 @@ GameObject:
   - component: {fileID: 1615874899}
   - component: {fileID: 1615874898}
   - component: {fileID: 1615874901}
-  - component: {fileID: 1615874903}
   - component: {fileID: 1615874902}
   m_Layer: 5
   m_Name: Earth
@@ -7124,7 +7053,7 @@ MonoBehaviour:
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
+          m_IntArgument: 1
           m_FloatArgument: 0
           m_StringArgument: Earth
           m_BoolArgument: 0
@@ -7213,18 +7142,6 @@ MonoBehaviour:
   m_FlexibleWidth: -1
   m_FlexibleHeight: -1
   m_LayoutPriority: 1
---- !u!114 &1615874903
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1615874896}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e4698240532a8ec4fa2e0ffec68e9d33, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1657389424
 GameObject:
   m_ObjectHideFlags: 0
@@ -7348,7 +7265,6 @@ GameObject:
   - component: {fileID: 1722636713}
   - component: {fileID: 1722636712}
   - component: {fileID: 1722636715}
-  - component: {fileID: 1722636717}
   - component: {fileID: 1722636716}
   m_Layer: 5
   m_Name: WaterLevel
@@ -7430,7 +7346,7 @@ MonoBehaviour:
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 2
+          m_IntArgument: 3
           m_FloatArgument: 0
           m_StringArgument: WaterLevel
           m_BoolArgument: 0
@@ -7519,18 +7435,6 @@ MonoBehaviour:
   m_FlexibleWidth: -1
   m_FlexibleHeight: -1
   m_LayoutPriority: 1
---- !u!114 &1722636717
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1722636710}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e4698240532a8ec4fa2e0ffec68e9d33, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1724756965
 GameObject:
   m_ObjectHideFlags: 0
@@ -7835,7 +7739,7 @@ PrefabInstance:
     - target: {fileID: 6774997523865840161, guid: 55efa9751efc1fb44bf21a0f06559d07,
         type: 3}
       propertyPath: m_RootOrder
-      value: 8
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 6774997523865840161, guid: 55efa9751efc1fb44bf21a0f06559d07,
         type: 3}
@@ -8191,7 +8095,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1948500204
 GameObject:
@@ -8357,7 +8261,6 @@ GameObject:
   - component: {fileID: 1958556781}
   - component: {fileID: 1958556780}
   - component: {fileID: 1958556783}
-  - component: {fileID: 1958556785}
   - component: {fileID: 1958556784}
   m_Layer: 5
   m_Name: Boss Level
@@ -8439,7 +8342,7 @@ MonoBehaviour:
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 4
+          m_IntArgument: 5
           m_FloatArgument: 0
           m_StringArgument: Boss Level
           m_BoolArgument: 0
@@ -8528,18 +8431,6 @@ MonoBehaviour:
   m_FlexibleWidth: -1
   m_FlexibleHeight: -1
   m_LayoutPriority: 1
---- !u!114 &1958556785
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1958556778}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e4698240532a8ec4fa2e0ffec68e9d33, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1980598131
 GameObject:
   m_ObjectHideFlags: 0
@@ -9274,10 +9165,10 @@ RectTransform:
   m_Father: {fileID: 1379513626}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 12.5, y: -10}
-  m_SizeDelta: {x: 1965, y: 1110}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: 20, y: -10}
+  m_SizeDelta: {x: 60, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2090962040
 MonoBehaviour:

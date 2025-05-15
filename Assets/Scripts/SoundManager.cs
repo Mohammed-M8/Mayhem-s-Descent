@@ -24,7 +24,7 @@ public class SoundManager : MonoBehaviour
 
         sfxSource = gameObject.AddComponent<AudioSource>();
         musicSource = gameObject.AddComponent<AudioSource>();
-
+        musicSource.loop = true;
     }
 
     public void PlaySound(AudioClip clip, float volume = 1f)

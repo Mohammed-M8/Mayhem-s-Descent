@@ -8,4 +8,8 @@ public class LevelLoader : MonoBehaviour
         //SceneManager.LoadScene(sceneName);
         SceneManager.LoadScene(levelIndex);
     }
+    public void QuitGame()
+    {
+        Application.Quit();
+    }
 }

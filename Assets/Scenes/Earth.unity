@@ -1827,7 +1827,7 @@ PrefabInstance:
         type: 3}
       propertyPath: projectile
       value: 
-      objectReference: {fileID: 5023125731010291333, guid: 2a65d48f20a9ee146965d436de355465,
+      objectReference: {fileID: 5023125731010291333, guid: 4aaa29f3beccaa749b3efdb340487d03,
         type: 3}
     - target: {fileID: 5259956718320446413, guid: 2dfbb63c9cdf7504faf4ff26b0581598,
         type: 3}
@@ -1839,6 +1839,12 @@ PrefabInstance:
       propertyPath: slashSound
       value: 
       objectReference: {fileID: 8300000, guid: ed04f59f67b0b534c8a7f4dd97a55681, type: 3}
+    - target: {fileID: 5259956718320446413, guid: 2dfbb63c9cdf7504faf4ff26b0581598,
+        type: 3}
+      propertyPath: slashPrefab
+      value: 
+      objectReference: {fileID: 3245855528223861111, guid: 7635fc962e2766f4987ff34e5ab64bf6,
+        type: 3}
     - target: {fileID: 5259956718320446413, guid: 2dfbb63c9cdf7504faf4ff26b0581598,
         type: 3}
       propertyPath: shootCooldownUI

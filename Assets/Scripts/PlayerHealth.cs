@@ -1,5 +1,4 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
@@ -31,16 +30,12 @@ public class PlayerHealth : MonoBehaviour
         {
             Renderer singleRenderer = GetComponent<Renderer>();
             if (singleRenderer != null)
-            {
                 renderers = new Renderer[] { singleRenderer };
-            }
         }
 
         originalColors = new Color[renderers.Length];
         for (int i = 0; i < renderers.Length; i++)
-        {
             originalColors[i] = renderers[i].material.color;
-        }
 
         if (damageOverlay != null)
         {
@@ -50,7 +45,6 @@ public class PlayerHealth : MonoBehaviour
         }
 
         UpdateHealthBar();
-
     }
 
     public void Update()
@@ -67,9 +61,7 @@ public class PlayerHealth : MonoBehaviour
     public void takeDamage(int damage)
     {
         health -= damage;
-
-        if (health < 0)
-            health = 0;
+        if (health < 0) health = 0;
 
         UpdateHealthBar();
 
@@ -90,45 +82,65 @@ public class PlayerHealth : MonoBehaviour
 
     public void addHealth(int h)
     {
-
         health = Mathf.Min(health + h, maxhealth);
-
         UpdateHealthBar();
     }
+
     private IEnumerator Die()
     {
         animator.SetTrigger("Die");
         yield return new WaitForSeconds(0.6f);
-        Destroy(this.gameObject);
+
+        // Show the Death screen via your PauseManager
+        var pm = FindObjectOfType<PauseManager>();
+        if (pm != null)
+        {
+            pm.ShowDeathScreen();
+        }
+
+        // hide the damage-overlay so it doesn't bleed into the death screen
+        if (damageOverlay != null)
+        {
+            damageOverlay.gameObject.SetActive(false);
+        }
+            
+
+        // disable all player control & visuals
+        var pmv = GetComponent<PlayerMove>();
+        if (pmv != null) pmv.enabled = false;
+        var combat = GetComponent<Combat>();
+        if (combat != null) combat.enabled = false;
+        var aim = GetComponent<Aim>();
+        if (aim != null) aim.enabled = false;
+        var agent = GetComponent<UnityEngine.AI.NavMeshAgent>();
+        if (agent != null) agent.isStopped = true;
+
+        foreach (var r in GetComponentsInChildren<Renderer>())
+            r.enabled = false;
+
+        //Destroy(this.gameObject);
     }
+
     public IEnumerator damageFlash()
     {
         if (renderers != null)
         {
             foreach (Renderer r in renderers)
-            {
                 r.material.color = Color.red * 10f;
-            }
 
             yield return new WaitForSeconds(0.1f);
 
             for (int i = 0; i < renderers.Length; i++)
-            {
                 renderers[i].material.color = originalColors[i];
-            }
         }
     }
 
-        public void UpdateHealthBar()
+    public void UpdateHealthBar()
     {
         if (bar != null)
-        {
             bar.fillAmount = (float)health / maxhealth;
-        }
 
         if (healthText != null)
-        {
             healthText.text = $"{health} / {maxhealth}";
-        }
     }
 }

@@ -37,9 +37,9 @@ public class WaveManager : MonoBehaviour
     IEnumerator RunWaves()
     {
         float timer = 0f;
+        // 1) Spawn each wave in turn
         foreach (var wave in waves)
         {
-            // Configure spawner for this wave
             spawner.enemyPrefabs = wave.enemies;
             spawner.spawnInterval = wave.spawnInterval;
             spawner.enabled = true;
@@ -52,8 +52,18 @@ public class WaveManager : MonoBehaviour
             }
         }
 
-        // All waves complete
+        // 2) Stop spawning
         spawner.enabled = false;
+
+        // 3) Wait until all active enemies are gone
+        yield return new WaitUntil(() =>
+            GameObject.FindGameObjectsWithTag("Enemy").Length == 0
+        );
+
+        // 4) Show victory screen
+        var pm = FindObjectOfType<PauseManager>();
+        if (pm != null)
+            pm.ShowVictoryScreen();
     }
 
     void Update()
